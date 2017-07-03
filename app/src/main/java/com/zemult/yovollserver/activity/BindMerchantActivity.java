@@ -23,6 +23,7 @@ import butterknife.OnClick;
 
 /**
  * Created by Wikison on 2017/6/29.
+ * 绑定商户
  */
 
 public class BindMerchantActivity extends BaseActivity {
