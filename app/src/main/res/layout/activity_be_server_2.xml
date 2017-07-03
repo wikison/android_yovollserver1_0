@@ -10,6 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_12dp"
         android:layout_height="48dp">
 
         <include layout="@layout/layout_be_server_divider"/>
@@ -157,8 +158,7 @@
                     android:textSize="14sp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/text_12_black_999"
                     android:layout_marginLeft="@dimen/margin_12dp"
                     android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
@@ -199,6 +199,8 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
@@ -212,8 +214,7 @@
                     android:textSize="14sp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/text_12_black_999"
                     android:layout_marginLeft="@dimen/margin_12dp"
                     android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
@@ -268,6 +269,6 @@
         android:text="保存并完成"
         android:textColor="@color/white"
         android:textSize="17sp"
-        app:rv_backgroundColor="@color/color_b88e42"
+        app:rv_backgroundColor="@color/c18414266"
         app:rv_backgroundPressColor="#90B88E42"/>
 </LinearLayout>

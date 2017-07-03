@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_12dp"
                 android:text="11"
-                android:textColor="@color/ff0500"
+                android:textColor="@color/c2550500"
                 android:textSize="15sp"
                 android:visibility="visible"/>
 
@@ -81,7 +81,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
                 android:text="分享交易链接"
-                android:textColor="@color/ff0500"/>
+                android:textColor="@color/c2550500"/>
         </com.flyco.roundview.RoundLinearLayout>
 
         <ImageView

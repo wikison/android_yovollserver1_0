@@ -319,7 +319,7 @@
                 android:drawableLeft="@mipmap/duanxin"
                 android:drawablePadding="4dp"
                 android:text="发至手机短信"
-                android:textColor="@color/color_b88e42"
+                android:textColor="@color/c18414266"
                 android:textSize="16sp"/>
         </com.flyco.roundview.RoundLinearLayout>
 
@@ -330,7 +330,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            app:rv_backgroundColor="@color/color_b88e42">
+            app:rv_backgroundColor="@color/c18414266">
 
             <TextView
                 android:layout_width="wrap_content"

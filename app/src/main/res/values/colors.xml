@@ -538,8 +538,9 @@
     <color name="label">#00BCD4</color>
     
     <color name="ff0000">#FF0000</color>
-    <color name="eb1b33">#eb1b33</color>
-    <color name="ff0500">#FF0500</color>
+    <color name="c2352751">#eb1b33</color>
+    <color name="c2550500">#FF0500</color>
+    <color name="c2306764">#E64340</color>
 
     <color name="yueke">#3c434c</color>
     <color name="e6bb7c">#e6bb7c</color>
@@ -552,7 +553,7 @@
     <color name="font_new_red">#d94d43</color>
     <color name="font_new_blue">#1897c6</color>
 
-    <color name="color_b88e42">#B88E42</color>
+    <color name="c18414266">#B88E42</color>
     <color name="imagePlaceColor">#e0e0e0</color>
 
 </resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/text_16_black_28"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/check_selector"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_new_price"
+            style="@style/text_15_black_28"
+            android:text="$20"
+            android:textColor="@color/c2550500"/>
+
+        <TextView
+            android:id="@+id/tv_old_price"
+            style="@style/text_14_black_28"
+            android:layout_marginLeft="@dimen/margin_12dp"
+            android:text="$20"
+            android:textColor="@color/font_black_999"/>
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/tv_pre_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_12dp"
+            android:padding="4dp"
+            android:text="订金$20"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:rv_backgroundColor="@color/c18414266"
+            app:rv_cornerRadius="3px"
+            app:rv_isRippleEnable="false"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_12dp"
+        android:background="#f9f9f9"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@id/tv_note"
+            style="@style/text_12_black_999"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text=""/>
+    </LinearLayout>
+</LinearLayout>
