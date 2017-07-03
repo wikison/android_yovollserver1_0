@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_head"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bg_be_server"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="60dp"
+            android:text="约服管家，一个更有价值的服务人"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:paddingBottom="54dp"
+            android:text="增加收入·拓展人脉·提高身价"
+            android:textColor="#DBDBDB"
+            android:textSize="15sp"/>
+
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/rtv_join_now"
+            android:layout_width="210dp"
+            android:layout_height="55dp"
+            android:layout_above="@+id/tv_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="立即加入"
+            android:textColor="#DBDBDB"
+            app:rv_backgroundColor="#46362E2B"
+            app:rv_backgroundPressColor="#90362E2B"
+            app:rv_cornerRadius="5dp"
+            app:rv_strokeColor="#C9C9C9"
+            app:rv_strokeWidth="1px"/>
+    </RelativeLayout>
+</LinearLayout>

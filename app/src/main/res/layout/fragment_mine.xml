@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_f2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_f2"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_my_info"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/bg_mine_head">
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/user_icon"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_12dp"
+                android:layout_toRightOf="@id/iv_head"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="昵称"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_order"
+            style="@style/relative_layout_item">
+
+            <TextView
+                style="@style/text_15_black_28"
+                android:layout_height="match_parent"
+                android:text="我的订单"/>
+
+
+            <LinearLayout
+                android:id="@+id/ll_service_record"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/iv_service_record"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/margin_8dp">
+
+                <TextView
+                    android:id="@+id/tv_unsure_num"
+                    style="@style/text_15_black_999"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="还有2个预约单未买单"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:src="@mipmap/tixing_icon"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_service_record"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/right_btn"/>
+        </RelativeLayout>
+
+        <View style="@style/divider"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_own"
+            style="@style/relative_layout_item">
+
+            <TextView
+                style="@style/text_15_black_28"
+                android:text="我的收益"/>
+
+            <TextView
+                android:id="@+id/tv_my_own"
+                style="@style/text_15_black_999"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text="￥180.00元"/>
+        </RelativeLayout>
+
+        <View style="@style/divider"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_scheme"
+            style="@style/relative_layout_item"
+            android:layout_marginTop="@dimen/margin_12dp">
+
+            <TextView
+                style="@style/text_15_black_28"
+                android:text="我的方案"/>
+
+            <TextView
+                android:id="@+id/tv_my_scheme"
+                style="@style/text_15_black_999"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text="服务方案6套"/>
+        </RelativeLayout>
+
+        <View style="@style/divider"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_merchant"
+            style="@style/relative_layout_item">
+
+            <TextView
+                style="@style/text_15_black_28"
+                android:text="我的商户"/>
+
+            <TextView
+                android:id="@+id/tv_my_merchant"
+                style="@style/text_15_black_999"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text="已绑定1家"/>
+        </RelativeLayout>
+
+        <View style="@style/divider"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_service"
+            style="@style/relative_layout_item">
+
+            <TextView
+                style="@style/text_15_black_28"
+                android:text="我的服务"/>
+
+            <TextView
+                android:id="@+id/tv_my_service"
+                style="@style/text_15_black_999"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text=""/>
+        </RelativeLayout>
+
+        <View style="@style/divider"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_msg"
+            style="@style/relative_layout_item"
+            android:layout_marginTop="@dimen/margin_12dp">
+
+            <TextView
+                style="@style/text_15_black_28"
+                android:text="我的消息"/>
+
+            <TextView
+                android:id="@+id/tv_my_msg"
+                style="@style/text_15_black_999"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text=""/>
+        </RelativeLayout>
+
+        <View style="@style/divider"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_set"
+            style="@style/relative_layout_item"
+            android:layout_marginTop="@dimen/margin_12dp">
+
+            <TextView
+                style="@style/text_15_black_28"
+                android:text="设置"/>
+
+            <TextView
+                android:id="@+id/tv_set"
+                style="@style/text_15_black_999"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text=""/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+    </LinearLayout>
+
+
+</ScrollView>
+

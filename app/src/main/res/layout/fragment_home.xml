@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_f2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_f2"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_12dp"
+        android:paddingRight="@dimen/margin_12dp"
+        android:paddingTop="@dimen/margin_12dp">
+
+        <LinearLayout
+            android:id="@+id/rll_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:orientation="vertical"
+            app:rv_backgroundColor="@color/e6"
+            app:rv_cornerRadius="6dp">
+
+            <com.flyco.roundview.RoundLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:orientation="horizontal"
+                app:rv_cornerRadius_TL="6dp"
+                app:rv_cornerRadius_TR="6dp">
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/rll_focus"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:rv_backgroundColor="@color/white"
+                    app:rv_cornerRadius_TL="6dp">
+
+                    <TextView
+                        style="@style/text_12_black_28"
+                        android:drawableLeft="@mipmap/guanzhu_icon"
+                        android:drawablePadding="4dp"
+                        android:text="关注"
+                        android:textColor="#515151"
+                        android:textSize="13sp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+
+                        <me.grantland.widget.AutofitTextView
+                            android:id="@+id/tv_focus_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/tv_ren"
+                            android:gravity="bottom"
+                            android:maxLines="1"
+                            android:text="10000"
+                            android:textColor="#E64340"
+                            android:textSize="20sp"
+                            app:minTextSize="9sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_ren"
+                            style="@style/text_12_black_28"
+                            android:layout_alignBottom="@+id/tv_focus_num"
+                            android:layout_alignParentRight="true"
+                            android:gravity="bottom"
+                            android:text="人"
+                            android:textColor="#999999"/>
+
+                    </RelativeLayout>
+
+                </com.flyco.roundview.RoundLinearLayout>
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/rll_reward"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:rv_backgroundColor="@color/white">
+
+                    <TextView
+                        style="@style/text_12_black_28"
+                        android:drawableLeft="@mipmap/zanshang_icon"
+                        android:drawablePadding="4dp"
+                        android:text="赞赏"
+                        android:textColor="#515151"
+                        android:textSize="13sp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <me.grantland.widget.AutofitTextView
+                            android:id="@+id/tv_reward_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/tv_ci"
+                            android:gravity="left|bottom"
+                            android:maxLines="1"
+                            android:text="10000"
+                            android:textColor="#E64340"
+                            android:textSize="20sp"
+                            app:minTextSize="9sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_ci"
+                            style="@style/text_12_black_28"
+                            android:layout_alignBottom="@+id/tv_reward_num"
+                            android:layout_alignParentRight="true"
+                            android:gravity="bottom"
+                            android:text="次"
+                            android:textColor="#999999"/>
+
+                    </RelativeLayout>
+                </com.flyco.roundview.RoundLinearLayout>
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/rll_income"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:rv_backgroundColor="@color/white"
+                    app:rv_cornerRadius_TR="6dp">
+
+                    <TextView
+                        style="@style/text_12_black_28"
+                        android:drawableLeft="@mipmap/shouyi_icon"
+                        android:drawablePadding="4dp"
+                        android:text="收益"
+                        android:textColor="#515151"
+                        android:textSize="13sp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+
+                        <me.grantland.widget.AutofitTextView
+                            android:id="@+id/tv_income"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/tv_text_income"
+                            android:gravity="left|bottom"
+                            android:maxLines="1"
+                            android:text="10000"
+                            android:textColor="#E64340"
+                            android:textSize="20sp"
+                            app:minTextSize="9sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_text_income"
+                            style="@style/text_12_black_28"
+                            android:layout_alignBottom="@+id/tv_income"
+                            android:layout_alignParentRight="true"
+                            android:gravity="bottom"
+                            android:text="元"
+                            android:textColor="#999999"/>
+
+                    </RelativeLayout>
+                </com.flyco.roundview.RoundLinearLayout>
+
+            </com.flyco.roundview.RoundLinearLayout>
+
+            <com.flyco.roundview.RoundLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginTop="1px"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:rv_cornerRadius_BL="6dp"
+                app:rv_cornerRadius_BR="6dp">
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/rll_order"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:rv_backgroundColor="@color/white"
+                    app:rv_cornerRadius_BL="6dp">
+
+                    <TextView
+                        style="@style/text_12_black_28"
+                        android:drawableLeft="@mipmap/yuyue_icon"
+                        android:drawablePadding="4dp"
+                        android:text="预约订单"
+
+                        android:textColor="#515151"
+                        android:textSize="13sp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <me.grantland.widget.AutofitTextView
+                            android:id="@+id/tv_order_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/tv_text_order"
+                            android:gravity="left|bottom"
+                            android:maxLines="1"
+                            android:text="1000000.00"
+                            android:textColor="#E64340"
+                            android:textSize="20sp"
+                            app:minTextSize="9sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_text_order"
+                            style="@style/text_12_black_28"
+                            android:layout_alignBottom="@+id/tv_order_num"
+                            android:layout_alignParentRight="true"
+                            android:gravity="bottom"
+                            android:text="单"
+                            android:textColor="#999999"/>
+
+                    </RelativeLayout>
+                </com.flyco.roundview.RoundLinearLayout>
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/rll_buy"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:rv_backgroundColor="@color/white">
+
+                    <TextView
+                        style="@style/text_12_black_28"
+                        android:drawableLeft="@mipmap/maidan_icon"
+                        android:drawablePadding="4dp"
+                        android:text="买单流水"
+                        android:textColor="#515151"
+                        android:textSize="13sp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <me.grantland.widget.AutofitTextView
+                            android:id="@+id/tv_buy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/tv_text_buy"
+                            android:gravity="left|bottom"
+                            android:maxLines="1"
+                            android:text="10000"
+                            android:textColor="#E64340"
+                            android:textSize="20sp"
+                            app:minTextSize="9sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_text_buy"
+                            style="@style/text_12_black_28"
+                            android:layout_alignBottom="@+id/tv_buy"
+                            android:layout_alignParentRight="true"
+                            android:gravity="bottom"
+                            android:text="元"
+                            android:textColor="#999999"/>
+
+                    </RelativeLayout>
+                </com.flyco.roundview.RoundLinearLayout>
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/rll_product"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:rv_backgroundColor="@color/white"
+                    app:rv_cornerRadius_BR="6dp">
+
+                    <TextView
+                        style="@style/text_12_black_28"
+                        android:drawableLeft="@mipmap/sale_icon"
+                        android:drawablePadding="4dp"
+                        android:text="产品销售"
+                        android:textColor="#515151"
+                        android:textSize="13sp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <me.grantland.widget.AutofitTextView
+                            android:id="@+id/tv_product_sale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/tv_text_product"
+                            android:gravity="left|bottom"
+                            android:maxLines="1"
+                            android:text="10000"
+                            android:textColor="#E64340"
+                            android:textSize="20sp"
+                            app:minTextSize="9sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_text_product"
+                            style="@style/text_12_black_28"
+                            android:layout_alignBottom="@+id/tv_product_sale"
+                            android:layout_alignParentRight="true"
+                            android:gravity="bottom"
+                            android:text="元"
+                            android:textColor="#999999"/>
+
+                    </RelativeLayout>
+                </com.flyco.roundview.RoundLinearLayout>
+
+            </com.flyco.roundview.RoundLinearLayout>
+        </com.flyco.roundview.RoundLinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp">
+
+            <com.flyco.roundview.RoundLinearLayout
+                android:id="@+id/rll_customer_manage"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:rv_backgroundColor="#4545D7"
+                app:rv_cornerRadius="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:drawableLeft="@mipmap/kehuguanli_icon"
+                    android:drawablePadding="4dp"
+                    android:text="客户管理"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+            </com.flyco.roundview.RoundLinearLayout>
+
+
+            <com.flyco.roundview.RoundLinearLayout
+                android:id="@+id/rll_service_scheme"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:rv_backgroundColor="#F4762A"
+                app:rv_cornerRadius="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:drawableLeft="@mipmap/fuwufangan_icon"
+                    android:drawablePadding="4dp"
+                    android:text="服务方案"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+            </com.flyco.roundview.RoundLinearLayout>
+
+            <com.flyco.roundview.RoundLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="16sp"
+                app:rv_backgroundColor="#14C349"
+                app:rv_cornerRadius="3dp">
+
+                <com.flyco.roundview.RoundTextView
+                    android:id="@+id/rtv_talk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:adjustViewBounds="true"
+                    android:drawableLeft="@mipmap/liaotian_icon"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="聊天会话"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:rv_cornerRadius="3dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_red_dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="fitStart"
+                    android:src="@mipmap/tixing_icon"/>
+            </com.flyco.roundview.RoundLinearLayout>
+
+        </LinearLayout>
+
+        <com.zemult.yovollserver.view.FixedListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</ScrollView>
+

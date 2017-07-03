@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bg_f2"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_head"
+        layout="@layout/layout_head"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_merchant_name"
+                style="@style/layout_item_48">
+
+                <TextView
+                    style="@style/text_15_black_28"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="商户"/>
+
+
+                <TextView
+                    android:id="@+id/tv_merchant_name"
+                    style="@style/text_14_black_333"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:drawablePadding="10dp"
+                    android:text="商户名称"/>
+
+            </RelativeLayout>
+
+            <View
+                style="@style/divider"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_service_item"
+                style="@style/layout_item_48">
+
+                <TextView
+                    style="@style/text_15_black_28"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="服务项"/>
+
+
+                <TextView
+                    android:id="@+id/tv_service_item"
+                    style="@style/text_14_black_333"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@mipmap/right_btn"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:maxWidth="250dp"
+                    android:text="商务订餐"
+                    android:textColor="@color/font_black_333"/>
+
+            </RelativeLayout>
+
+            <View
+                style="@style/divider"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_order_time"
+                style="@style/layout_item_48"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    style="@style/text_15_black_28"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="到店时间"/>
+
+
+                <TextView
+                    android:id="@+id/bespek_time"
+                    style="@style/text_14_black_333"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@mipmap/right_btn"
+                    android:text="选择时间"
+                    android:textColor="@color/font_black_999"/>
+            </RelativeLayout>
+
+            <View
+                style="@style/divider"/>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_select_deadline"
+                style="@style/layout_item_48">
+
+                <TextView
+                    android:id="@+id/tv_title_select_deadline"
+                    style="@style/text_15_black_28"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="人数"/>
+
+                <com.zemult.yovollserver.view.PMNumView
+                    android:id="@+id/pmnv_select_deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <View
+                style="@style/divider"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_order_info"
+                style="@style/layout_item_48"
+                android:paddingRight="8dp">
+
+                <TextView
+                    style="@style/text_15_black_28"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="预约信息"/>
+
+                <EditText
+                    android:id="@+id/et_order_info"
+                    style="@style/text_14_black_28"
+                    android:layout_width="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="输入楼层/房间/包厢号/桌号等信息"
+                    android:maxLength="15"
+                    android:paddingRight="8dp"
+                    android:textColorHint="@color/font_black_999"/>
+            </RelativeLayout>
+
+            <View
+                style="@style/divider"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_order_earnest"
+                style="@style/layout_item_48"
+                android:paddingRight="8dp">
+
+                <TextView
+                    style="@style/text_15_black_28"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="预约订金"/>
+
+                <EditText
+                    android:id="@+id/et_order_earnest"
+                    style="@style/text_14_black_28"
+                    android:layout_width="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="70dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="如需收取预约订金请输入金额"
+                    android:inputType="numberDecimal"
+                    android:maxLength="5"
+                    android:paddingRight="8dp"
+                    android:textColorHint="@color/font_black_999"/>
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_earnest_tip"
+                style="@style/text_12_black_999"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:text="订金如需退款请线下和商户协商"/>
+
+
+            <LinearLayout
+                android:id="@+id/ll_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/margin_12dp"
+                android:visibility="visible">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp">
+
+                    <View
+                        style="@style/divider"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="140dp"
+                        android:layout_marginRight="140dp"
+                        android:background="@color/font_black_333"/>
+
+                    <TextView
+                        android:id="@+id/tv_recommend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/bg_f2"
+                        android:text="  给客户推荐  "
+                        android:textColor="@color/font_black_333"
+                        android:textSize="12sp"/>
+                </FrameLayout>
+
+                <com.flyco.roundview.RoundRelativeLayout
+                    android:id="@+id/rll_recommend"
+                    style="@style/layout_item_48"
+                    android:layout_marginLeft="@dimen/margin_16dp"
+                    android:layout_marginRight="@dimen/margin_16dp"
+                    android:layout_marginTop="12dp"
+                    app:rv_backgroundColor="@color/white"
+                    app:rv_backgroundPressColor="@color/bg_ce"
+                    app:rv_cornerRadius="24dp"
+                    app:rv_strokeColor="@color/divider_dc"
+                    app:rv_strokeWidth="1px">
+
+                    <TextView
+                        style="@style/text_15_black_28"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="服务方案推荐"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_service"
+                        style="@style/text_14_black_333"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@mipmap/right_btn"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:maxWidth="250dp"
+                        android:text="选择商务订餐服务方案"
+                        android:textColor="@color/font_black_999"/>
+
+                </com.flyco.roundview.RoundRelativeLayout>
+
+                <com.flyco.roundview.RoundRelativeLayout
+                    android:id="@+id/rll_product_recommend"
+                    style="@style/layout_item_48"
+                    android:layout_marginLeft="@dimen/margin_16dp"
+                    android:layout_marginRight="@dimen/margin_16dp"
+                    android:layout_marginTop="12dp"
+                    app:rv_backgroundColor="@color/white"
+                    app:rv_backgroundPressColor="@color/bg_ce"
+                    app:rv_cornerRadius="24dp"
+                    app:rv_strokeColor="@color/divider_dc"
+                    app:rv_strokeWidth="1px">
+
+                    <TextView
+                        style="@style/text_15_black_28"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="产品推荐"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_product_recommend"
+                        style="@style/text_14_black_333"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@mipmap/right_btn"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:maxWidth="250dp"
+                        android:text="选择商务订餐相关产品"
+                        android:textColor="@color/font_black_999"/>
+
+                </com.flyco.roundview.RoundRelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/margin_12dp">
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_send_msg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:rv_backgroundColor="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:drawableLeft="@mipmap/duanxin"
+                android:drawablePadding="4dp"
+                android:text="发至手机短信"
+                android:textColor="@color/color_b88e42"
+                android:textSize="16sp"/>
+        </com.flyco.roundview.RoundLinearLayout>
+
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_send_wx"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:rv_backgroundColor="@color/color_b88e42">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:drawableLeft="@mipmap/weixin"
+                android:drawablePadding="4dp"
+                android:text="发至微信好友"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+        </com.flyco.roundview.RoundLinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

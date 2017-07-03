@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:baselineAligned="false"
+              android:gravity="center_vertical">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/decrease"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="－"
+        android:textColor="@color/bg_head"
+        android:textSize="@dimen/font_30px"
+        app:rv_backgroundColor="@color/white"
+        app:rv_cornerRadius="100dp"
+        app:rv_isRadiusHalfHeight="true"
+        app:rv_isRippleEnable="true"
+        app:rv_strokeColor="@color/bg_head"
+        app:rv_strokePressColor="@color/bg_head"
+        app:rv_strokeWidth="1dp"/>
+
+    <com.flyco.roundview.RoundRelativeLayout
+        android:id="@+id/rll_task_describe"
+        android:layout_width="50dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="@dimen/margin_12dp"
+        app:rv_cornerRadius="5dp"
+        app:rv_strokeColor="@color/divider_c1"
+        app:rv_strokeWidth="1px">
+
+        <EditText
+            android:id="@+id/et_num"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:digits="0123456789"
+            android:gravity="center"
+            android:hint=""
+            android:inputType="number"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/black"
+            android:textColorHint="#999999"
+            android:textSize="@dimen/font_32px"/>
+    </com.flyco.roundview.RoundRelativeLayout>
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/plus"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="@dimen/margin_12dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="＋"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_30px"
+        app:rv_backgroundColor="@color/bg_head"
+        app:rv_cornerRadius="100dp"
+        app:rv_isRadiusHalfHeight="true"
+        app:rv_isRippleEnable="true"
+        app:rv_strokeColor="@color/bg_head"
+        app:rv_strokePressColor="@color/bg_head"
+        app:rv_strokeWidth="1dp"/>
+
+</LinearLayout>

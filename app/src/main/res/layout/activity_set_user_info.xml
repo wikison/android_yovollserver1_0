@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/include_layout_head"
+        layout="@layout/layout_head"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="@string/extra_help"
+        android:textColor="#666666"
+        android:textSize="13sp"/>
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/touxiang"/>
+
+    <LinearLayout
+        style="@style/binding_linearLayout"
+        android:layout_marginTop="80dp">
+
+        <TextView
+            style="@style/text_15_black_28"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:text="姓名"
+            android:textColor="#525252"
+            android:textSize="15sp"/>
+
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="输入您的中文或英文名"
+            android:maxLength="6"
+            android:textColor="@color/font_black_28"
+            android:textColorHint="@color/font_black_999"
+            android:textSize="@dimen/font_30px"/>
+    </LinearLayout>
+
+    <View
+        style="@style/divider"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <LinearLayout
+        style="@style/binding_linearLayout">
+
+        <TextView
+            style="@style/text_15_black_28"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:text="密码"
+            android:textColor="#525252"
+            android:textSize="15sp"/>
+
+
+        <EditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="设置您的登录密码"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:textColor="@color/font_black_28"
+            android:textColorHint="@color/font_black_999"
+            android:textSize="@dimen/font_30px"/>
+
+        <CheckBox
+            android:id="@+id/cb_look_pwd"
+            style="@style/CheckboxEye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <View
+        style="@style/divider"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <TextView
+        style="@style/text_12_black_999"
+        android:textColor="#ADADAD"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:text="*密码长度6~20位, 密码不能为纯数字"/>
+</LinearLayout>
+
+

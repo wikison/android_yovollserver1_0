@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <include layout="@layout/layout_head"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <include layout="@layout/layout_be_server_divider"/>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_bind_merchant"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:rv_backgroundColor="@color/white"
+            app:rv_strokeColor="#E9E9E9"
+            app:rv_strokeWidth="1px">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_12dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="第1步：绑定商户"
+                android:textColor="#999999"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:src="@mipmap/right_btn"/>
+        </com.flyco.roundview.RoundLinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/divider_be_server"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <include layout="@layout/layout_be_server_divider"/>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_position"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:rv_backgroundColor="@color/white"
+            app:rv_strokeColor="#E9E9E9"
+            app:rv_strokeWidth="1px">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_12dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="第2步：设置职位"
+                android:textColor="#999999"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:src="@mipmap/right_btn"/>
+        </com.flyco.roundview.RoundLinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/divider_be_server"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <include layout="@layout/layout_be_server_divider"/>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:rv_backgroundColor="@color/white"
+            app:rv_strokeColor="#E9E9E9"
+            app:rv_strokeWidth="1px">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_12dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="第3步：设置个人资料"
+                android:textColor="#999999"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:src="@mipmap/right_btn"/>
+        </com.flyco.roundview.RoundLinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/divider_be_server"
+        android:layout_height="56dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <include layout="@layout/layout_be_server_divider"/>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_notify"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:rv_backgroundColor="@color/white"
+            app:rv_strokeColor="#E9E9E9"
+            app:rv_strokeWidth="1px">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_12dp"
+                    android:gravity="center_vertical"
+                    android:text="打开系统通知"
+                    android:textColor="#E20000"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_12dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:text="可以第一时间收到客户的服务需求"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text="去打开"/>
+        </com.flyco.roundview.RoundLinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/divider_be_server"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <include layout="@layout/layout_be_server_divider"/>
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_contact"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:rv_backgroundColor="@color/white"
+            app:rv_strokeColor="#E9E9E9"
+            app:rv_strokeWidth="1px">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_12dp"
+                    android:gravity="center_vertical"
+                    android:text="绑定手机通讯录"
+                    android:textColor="#E20000"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_12dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:text="可以让曾经的客户快速在约服上找到你"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:drawablePadding="@dimen/margin_12dp"
+                android:drawableRight="@mipmap/right_btn"
+                android:text="立即绑定"/>
+        </com.flyco.roundview.RoundLinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_6dp">
+
+        <CheckBox
+            android:id="@+id/cb_agree"
+            style="@style/MyCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我已阅读并接受"
+            android:textColor="@color/font_black_999"
+            android:textSize="@dimen/font_24px"/>
+
+        <TextView
+            android:id="@+id/tv_protocol"
+            style="@style/text_12_black_46"
+            android:text="《约服管家协议》"
+            android:textColor="@color/font_main"/>
+    </LinearLayout>
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/rtv_finish"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/margin_12dp"
+        android:gravity="center"
+        android:text="保存并完成"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:rv_backgroundColor="@color/color_b88e42"
+        app:rv_backgroundPressColor="#90B88E42"/>
+</LinearLayout>

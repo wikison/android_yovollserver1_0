@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab"
+        style="@style/MyCustomTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/margin_12dp"
+        android:paddingRight="@dimen/margin_12dp">
+
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_buy"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:rv_backgroundColor="@color/white"
+            app:rv_backgroundPressColor="@color/aliceblue"
+            app:rv_cornerRadius="6dp"
+            app:rv_isRippleEnable="true"
+            app:rv_strokeColor="@color/color_b88e42"
+            app:rv_strokeWidth="1px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:drawableLeft="@mipmap/money"
+                android:drawablePadding="4dp"
+                android:text="买单收款"
+                android:textColor="@color/color_b88e42"
+                android:textSize="16sp"/>
+        </com.flyco.roundview.RoundLinearLayout>
+
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:id="@+id/rll_send_order"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:rv_backgroundColor="@color/color_b88e42"
+            app:rv_cornerRadius="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:drawableLeft="@mipmap/dingdan"
+                android:drawablePadding="4dp"
+                android:text="发订单"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+        </com.flyco.roundview.RoundLinearLayout>
+    </LinearLayout>
+</LinearLayout>

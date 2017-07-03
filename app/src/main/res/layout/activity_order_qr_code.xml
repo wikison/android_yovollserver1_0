@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/ll_root"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bg_f2"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_head"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.flyco.roundview.RoundLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:rv_backgroundColor="@color/white"
+            app:rv_cornerRadius="5dp">
+
+
+            <LinearLayout
+                style="@style/margin_lr_12dp"
+                android:layout_marginTop="@dimen/margin_36dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_12_black_999"
+                    android:text="服务管家: "/>
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/text_14_black_28"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_12dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_merchant_name"
+                style="@style/text_15_black_28"
+                android:layout_below="@+id/tv_name"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="55"/>
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:text="11"
+                android:textColor="@color/ff0500"
+                android:textSize="15sp"
+                android:visibility="visible"/>
+
+
+            <ImageView
+                android:id="@+id/iv_qr"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/tv_share"
+                style="@style/text_12_black_28"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:text="分享交易链接"
+                android:textColor="@color/ff0500"/>
+        </com.flyco.roundview.RoundLinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:src="@mipmap/user_icon"/>
+    </FrameLayout>
+</LinearLayout>
