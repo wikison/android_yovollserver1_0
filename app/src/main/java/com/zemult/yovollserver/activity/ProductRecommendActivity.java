@@ -157,8 +157,8 @@ public class ProductRecommendActivity extends BaseActivity {
             holder.tvOldPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
             holder.tvPrePrice.setText(String.format("订金￥%s", Convert.getMoneyString(entity.prePrice)));
             holder.tvDiscount.setText(String.format("佣金￥%s", Convert.getMoneyString(entity.discount)));
-            holder.tvSaleNum.setText(String.format("已售￥%s", entity.saleNum));
-            holder.tvStockNum.setText(String.format("库存￥%s", entity.stockNum));
+            holder.tvSaleNum.setText(String.format("已售 %d", entity.saleNum));
+            holder.tvStockNum.setText(String.format("库存 %d", entity.stockNum));
 
             boolean isSelected = selectedIds.contains(entity.productId);
             holder.btnCheck.setOnClickListener(new View.OnClickListener() {

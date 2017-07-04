@@ -54,6 +54,10 @@
         <activity android:name=".activity.BindMerchantActivity"/>
         <activity android:name=".activity.OrderQrCodeActivity"/>
         <activity android:name=".activity.MyCustomerActivity"/>
+        <activity android:name=".activity.PayOrderActivity"/>
+        <activity android:name=".activity.SendOrderActivity"/>
+        <activity android:name=".activity.ProductRecommendActivity"/>
+        <activity android:name=".activity.PlanRecommendActivity"/>
     </application>
 
 </manifest>
