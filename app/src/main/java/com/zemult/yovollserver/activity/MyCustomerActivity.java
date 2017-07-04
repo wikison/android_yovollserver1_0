@@ -193,7 +193,7 @@ public class MyCustomerActivity extends BaseActivity implements SmoothListView.I
         sendJsonRequest(userFansListRequest);
     }
 
-    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.rl_may_know, R.id.rll_generate_pay_code})
+    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.rl_may_know})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lh_btn_back:

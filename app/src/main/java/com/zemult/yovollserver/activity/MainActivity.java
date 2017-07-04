@@ -8,6 +8,7 @@ import android.view.View;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.adapter.HomePagerAdapter;
 import com.zemult.yovollserver.app.BaseActivity;
+import com.zemult.yovollserver.util.IntentUtil;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -79,8 +80,11 @@ public class MainActivity extends BaseActivity {
         Intent intent;
         switch (view.getId()) {
             case R.id.rll_buy:
+                IntentUtil.start_activity(this, PayOrderActivity.class);
                 break;
             case R.id.rll_send_order:
+                IntentUtil.start_activity(this, SendOrderActivity.class);
+                //
                 break;
         }
     }

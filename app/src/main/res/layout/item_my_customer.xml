@@ -27,17 +27,15 @@
                 android:id="@+id/tv_name"
                 style="@style/text_14_black_28"
                 android:layout_width="match_parent"
-                android:text="dddddddddddd"/>
+                android:text=""/>
 
             <TextView
                 android:id="@+id/tv_merchant_name"
                 style="@style/text_12_black_999"
-                android:text="ddd"
+                android:text=""
                 android:layout_width="match_parent"/>
 
         </LinearLayout>
-
-
     </LinearLayout>
 
     <View style="@style/divider"/>
