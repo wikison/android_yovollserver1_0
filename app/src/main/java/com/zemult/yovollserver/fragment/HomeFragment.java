@@ -1,5 +1,6 @@
 package com.zemult.yovollserver.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +17,10 @@ import android.widget.TextView;
 import com.flyco.roundview.RoundLinearLayout;
 import com.flyco.roundview.RoundTextView;
 import com.zemult.yovollserver.R;
+import com.zemult.yovollserver.activity.MyCustomerActivity;
 import com.zemult.yovollserver.app.BaseFragment;
 import com.zemult.yovollserver.config.Constants;
+import com.zemult.yovollserver.util.IntentUtil;
 import com.zemult.yovollserver.view.FixedListView;
 
 import butterknife.Bind;
@@ -80,6 +83,8 @@ public class HomeFragment extends BaseFragment {
     FixedListView lv;
 
     private Context mContext;
+    private Activity mActivity;
+
 
     @Override
     public void onResume() {
@@ -105,8 +110,13 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mContext = getActivity();
+        initData();
 
+    }
+
+    private void initData() {
+        mContext = getActivity();
+        mActivity = getActivity();
     }
 
     @Override
@@ -138,6 +148,7 @@ public class HomeFragment extends BaseFragment {
             case R.id.rll_product:
                 break;
             case R.id.rll_customer_manage:
+                IntentUtil.intStart_activity(mActivity, MyCustomerActivity.class);
                 break;
             case R.id.rll_service_scheme:
                 break;

@@ -53,6 +53,7 @@
         <activity android:name=".activity.BeServerGuideSecondActivity"/>
         <activity android:name=".activity.BindMerchantActivity"/>
         <activity android:name=".activity.OrderQrCodeActivity"/>
+        <activity android:name=".activity.MyCustomerActivity"/>
     </application>
 
 </manifest>

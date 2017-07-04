@@ -8,6 +8,8 @@ public class CommonResult {
     @Expose
     public String info;
     @Expose
+    public int maxpage;//当分页获取时，最大的页数
+    @Expose
     public int userId;
     @Expose
     public int isConfirm;//是否实名认证过(0:否1:是)
