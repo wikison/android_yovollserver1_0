@@ -1,7 +1,11 @@
 package com.zemult.yovollserver.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.graphics.Paint;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +25,6 @@ import com.zemult.yovollserver.util.ToastUtil;
 import com.zemult.yovollserver.util.UserManager;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import zema.volley.network.ResponseListener;
 
@@ -35,6 +38,8 @@ public class LoginActivity extends BaseActivity {
     Button lhBtnBack;
     @Bind(R.id.ll_back)
     LinearLayout llBack;
+    @Bind(R.id.lh_tv_title)
+    TextView lhTvTitle;
     @Bind(R.id.et_phone)
     EditText etPhone;
     @Bind(R.id.et_password)
@@ -46,10 +51,12 @@ public class LoginActivity extends BaseActivity {
     @Bind(R.id.tv_be_server)
     TextView tvBeServer;
 
-
-    String strUserName, strPwd;
     UserLoginRequest user_login_request;
 
+    private Context mContext;
+    private Activity mActivity;
+
+    String strUserName, strPwd;
 
     @Override
     public void setContentView() {
@@ -58,9 +65,52 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void init() {
+        initData();
+        initView();
+        initListener();
+    }
+
+    private void initData() {
+        mContext = this;
+        mActivity = this;
+    }
+
+    private void initView() {
+        lhTvTitle.setText("登录");
+        tvForget.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
+        etPhone.addTextChangedListener(watcher);
+        etPassword.addTextChangedListener(watcher);
+    }
+
+    private void initListener() {
 
     }
 
+    private TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (s.toString().length() > 0) {
+                if (etPhone.getText().toString().length() > 0
+                        && etPassword.getText().toString().length() > 0) {
+                    btnLogin.setEnabled(true);
+                    btnLogin.setBackgroundResource(R.drawable.common_selector_btn);
+                }
+
+            } else {
+                btnLogin.setEnabled(false);
+                btnLogin.setBackgroundResource(R.drawable.next_bg_btn_select);
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 
     private void login() {
         strUserName = etPhone.getText().toString();
@@ -116,12 +166,6 @@ public class LoginActivity extends BaseActivity {
         sendJsonRequest(user_login_request);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.btn_login, R.id.tv_be_server, R.id.tv_forget})
     public void onViewClicked(View view) {
