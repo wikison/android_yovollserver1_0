@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+    
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/rtv_name"
+        android:layout_width="100dp"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:layout_height="30dp"
+        app:rv_cornerRadius="15dp"
+        android:text=""
+        app:rv_backgroundColor="#eeeeee"/>
+
+
+</LinearLayout>

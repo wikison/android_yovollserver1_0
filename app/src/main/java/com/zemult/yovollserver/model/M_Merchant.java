@@ -29,6 +29,8 @@ public class M_Merchant implements Serializable {
     public int personNum;    //	参与人数
     @Expose
     public List<M_Merchant> merchantList;
+    @Expose
+    public List<M_Service> services;
 
     public String getPic() {
         return pic;
@@ -221,7 +223,7 @@ public class M_Merchant implements Serializable {
     @Expose
     public String position;  //管家在该商户下职位
 
-        public String getMerchantName() {
+    public String getMerchantName() {
         return merchantName;
     }
 

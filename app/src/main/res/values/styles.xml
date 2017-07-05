@@ -80,7 +80,6 @@
     </style>
 
 
-
     <style name="divider_margin_top" parent="view1dp">
         <item name="android:layout_height">1px</item>
         <item name="android:background">@color/divider_dc</item>
@@ -434,6 +433,8 @@
     </style>
 
     <style name="text_16_black_333">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/font_black_333</item>
         <item name="android:textSize">16sp</item>
     </style>
