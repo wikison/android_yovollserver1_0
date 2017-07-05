@@ -12,6 +12,7 @@ import com.flyco.roundview.RoundLinearLayout;
 import com.flyco.roundview.RoundTextView;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.app.BaseActivity;
+import com.zemult.yovollserver.util.ToastUtil;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -60,6 +61,7 @@ public class BeServerGuideSecondActivity extends BaseActivity {
     @Bind(R.id.rtv_finish)
     RoundTextView rtvFinish;
 
+    String strPhone;
     @Override
     public void setContentView() {
         setContentView(R.layout.activity_be_server_2);
@@ -73,7 +75,7 @@ public class BeServerGuideSecondActivity extends BaseActivity {
     }
 
     private void initData() {
-
+        strPhone=getIntent().getStringExtra("strPhone");
     }
 
     private void initView() {
@@ -82,13 +84,19 @@ public class BeServerGuideSecondActivity extends BaseActivity {
 
     @OnClick({R.id.rll_bind_merchant, R.id.rll_position, R.id.rll_user_info, R.id.rll_notify, R.id.rll_contact, R.id.tv_protocol, R.id.rtv_finish})
     public void onClick(View view) {
-        Intent intent;
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.rll_bind_merchant:
+                Intent  merchantintent =new Intent(BeServerGuideSecondActivity.this,BindMerchantActivity.class);
+                startActivity(merchantintent);
                 break;
             case R.id.rll_position:
+                Intent  positionintent =new Intent(BeServerGuideSecondActivity.this,PositionSetActivity.class);
+                startActivity(positionintent);
                 break;
             case R.id.rll_user_info:
+                Intent  infointent =new Intent(BeServerGuideSecondActivity.this,SetUserInfoActivity.class);
+                startActivity(infointent);
                 break;
             case R.id.rll_notify:
                 break;
@@ -97,8 +105,15 @@ public class BeServerGuideSecondActivity extends BaseActivity {
             case R.id.tv_protocol:
                 break;
             case R.id.rtv_finish:
+                if(!cbAgree.isChecked()){
+                    ToastUtil.showMessage("请阅读并接受协议");
+                    return;
+                }
+                Intent  mainintent =new Intent(BeServerGuideSecondActivity.this,MainActivity.class);
+                startActivity(mainintent);
                 break;
         }
+
     }
 
 }

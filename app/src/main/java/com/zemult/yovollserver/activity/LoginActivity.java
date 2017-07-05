@@ -123,12 +123,16 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.btn_login, R.id.tv_be_server})
+    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.btn_login, R.id.tv_be_server,R.id.tv_forget})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lh_btn_back:
             case R.id.ll_back:
                 finish();
+                break;
+            case R.id.tv_forget:
+                Intent forgetintent=new Intent(LoginActivity.this,FindPasswordActivity.class);
+                startActivity(forgetintent);
                 break;
             case R.id.btn_login:
                 login();

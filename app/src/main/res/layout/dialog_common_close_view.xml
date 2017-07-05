@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/transparent">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:orientation="vertical"
+        app:rv_backgroundColor="@color/white"
+        app:rv_cornerRadius="@dimen/radius_16px">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/iv_lefticon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/disclosure_arrow"/>
+
+
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/tv_title"
+                    style="@style/text_16_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="登录"
+                    />
+
+
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/iv_righticon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/shan_icon"/>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:id="@+id/ll_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                style="@style/binding_linearLayout">
+
+                <TextView
+                    style="@style/text_15_black_28"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="+86"
+                    android:textSize="15sp"/>
+
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="输入您的手机号"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:textColor="@color/font_black_28"
+                    android:textColorHint="@color/font_black_999"
+                    android:textSize="@dimen/font_30px"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="#c1c1c1"/>
+            <Button
+                android:layout_marginTop="25dp"
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="44.0dip"
+                android:background="@drawable/common_selector_btn_top"
+                android:gravity="center"
+                android:text="下一步"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_32px"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="验证码将发送至  15800000000"
+            />
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="@color/bg_head"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="59秒后重发"
+                />
+
+            <com.zemult.yovollserver.view.IdentifyingCodeView
+                android:layout_marginBottom="30dp"
+                android:id="@+id/icv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="26dp"
+                app:icv_et_bg_focus="@drawable/shape_icv_et_bg_focus"
+                app:icv_et_bg_normal="@drawable/shape_icv_et_bg_normal"
+                app:icv_et_divider_drawable="@drawable/shape_divider_identifying"
+                app:icv_et_number="4"
+                app:icv_et_text_color="#000000"
+                app:icv_et_width="50dp" />
+
+
+            </LinearLayout>
+
+    </com.flyco.roundview.RoundLinearLayout>
+
+</LinearLayout>
