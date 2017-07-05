@@ -62,7 +62,6 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-
     private void login() {
         strUserName = etPhone.getText().toString();
         strPwd = etPassword.getText().toString();
@@ -105,7 +104,7 @@ public class LoginActivity extends BaseActivity {
             public void onResponse(final Object response) {
                 if (((APIM_UserLogin) response).status == 1) {
                     UserManager.instance().saveUserinfo(((APIM_UserLogin) response).userInfo);
-                    Intent intent =new Intent(LoginActivity.this,MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
@@ -116,6 +115,7 @@ public class LoginActivity extends BaseActivity {
         });
         sendJsonRequest(user_login_request);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,7 +123,7 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.btn_login, R.id.tv_be_server,R.id.tv_forget})
+    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.btn_login, R.id.tv_be_server, R.id.tv_forget})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lh_btn_back:
@@ -131,14 +131,14 @@ public class LoginActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.tv_forget:
-                Intent forgetintent=new Intent(LoginActivity.this,FindPasswordActivity.class);
+                Intent forgetintent = new Intent(LoginActivity.this, FindPasswordActivity.class);
                 startActivity(forgetintent);
                 break;
             case R.id.btn_login:
                 login();
                 break;
             case R.id.tv_be_server:
-                Intent intent=new Intent(LoginActivity.this,BeServerGuideFirstActivity.class);
+                Intent intent = new Intent(LoginActivity.this, BeServerGuideFirstActivity.class);
                 startActivity(intent);
                 break;
         }

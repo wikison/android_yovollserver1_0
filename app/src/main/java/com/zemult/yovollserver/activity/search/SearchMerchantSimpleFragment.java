@@ -152,7 +152,7 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
         startActivity(intent);
     }
 
-    //搜索方案列表
+    //搜索商户列表
     public void merchant_firstpage_search_List(final boolean isLoadMore) {
         if (request != null) {
             request.cancel();

@@ -71,6 +71,10 @@ public class AllServiceActivity extends BaseActivity {
 
         //TODO need M_Merchant or (M_Merchant.merchantId && M_Merchant.reviewstatus)
         merchant = (M_Merchant) getIntent().getSerializableExtra("");
+        if (merchant == null) {
+            ToastUtil.showMessage("请先选择商户");
+            this.finish();
+        }
         maxIds = (merchant.reviewstatus == 2 ? Integer.MAX_VALUE : 1);
         getCommonMerchantServiceList();
     }
