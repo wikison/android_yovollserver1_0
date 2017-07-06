@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.adapter.HomePagerAdapter;
@@ -24,6 +26,8 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.vp)
     ViewPager vp;
 
+    HomePagerAdapter adapter;
+
     @Override
     public void setContentView() {
         setContentView(R.layout.activity_main);
@@ -43,7 +47,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
-        HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), this);
+        adapter = new HomePagerAdapter(getSupportFragmentManager(), this);
         vp.setAdapter(adapter);
         vp.setOffscreenPageLimit(3);
         vp.setCurrentItem(1);
@@ -65,6 +69,24 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 vp.setCurrentItem(position);
+
+                for (int i = 0; i < tab.getTabCount(); i++) {
+                    if (i == position) {
+                        TabLayout.Tab iTab = tab.getTabAt(i);
+                        View v = iTab.getCustomView();
+                        ImageView iv = (ImageView) v.findViewById(R.id.imageView);
+                        TextView tv = (TextView) v.findViewById(R.id.textView);
+                        iv.setImageResource(R.mipmap.xiaolian);
+                        tv.setTextColor(0xfff6ca89);
+                    } else {
+                        TabLayout.Tab iTab = tab.getTabAt(i);
+                        View v = iTab.getCustomView();
+                        ImageView iv = (ImageView) v.findViewById(R.id.imageView);
+                        TextView tv = (TextView) v.findViewById(R.id.textView);
+                        iv.setImageResource(R.mipmap.xiaolian_weixuan);
+                        tv.setTextColor(0xffc2c2c2);
+                    }
+                }
 
             }
 

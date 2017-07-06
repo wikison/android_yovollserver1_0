@@ -24,7 +24,7 @@ import com.zemult.yovollserver.fragment.MineFragment;
 
 public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
-    private Context context;
+    private Context mContext;
     private String[] titles = new String[]{"我的", "", "发现"};
     private int[] imageResId = new int[]{R.mipmap.xiaolian, R.mipmap.xiaolian, R.mipmap.xiaolian};
 
@@ -38,7 +38,7 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
     public HomePagerAdapter(FragmentManager fm, Context context) {
         super(fm);
-        this.context = context;
+        this.mContext = context;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        Drawable image = context.getResources().getDrawable(imageResId[position]);
+        Drawable image = mContext.getResources().getDrawable(imageResId[position]);
         image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
         SpannableString sb = new SpannableString(" ");
         ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
@@ -75,14 +75,14 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
 
     public View getTabView(int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.tab_item, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.tab_item, null);
         TextView tv = (TextView) view.findViewById(R.id.textView);
         tv.setText(titles[position]);
         ImageView img = (ImageView) view.findViewById(R.id.imageView);
         img.setImageResource(imageResId[position]);
         if (position != 1) {
             img.setVisibility(View.GONE);
-        }else {
+        } else {
             tv.setVisibility(View.GONE);
 
         }
@@ -90,20 +90,5 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
         return view;
     }
 
-    public View setTabView(int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.tab_item, null);
-        TextView tv = (TextView) view.findViewById(R.id.textView);
-        tv.setText(titles[position]);
-        ImageView img = (ImageView) view.findViewById(R.id.imageView);
-        img.setImageResource(imageResId[position]);
-        if (position != 1) {
-            img.setVisibility(View.GONE);
-        }else {
-            tv.setVisibility(View.GONE);
-
-        }
-
-        return view;
-    }
 
 }

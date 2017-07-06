@@ -61,6 +61,7 @@
         <activity android:name=".activity.ProductRecommendActivity"/>
         <activity android:name=".activity.PlanRecommendActivity"/>
         <activity android:name=".activity.AllServiceActivity"/>
+        <activity android:name=".activity.BaseWebViewActivity"/>
     </application>
 
 </manifest>

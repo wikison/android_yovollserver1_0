@@ -101,6 +101,7 @@
                 style="@style/text_15_black_999"
                 android:layout_alignParentRight="true"
                 android:drawablePadding="@dimen/margin_12dp"
+                android:textColor="#E64340"
                 android:drawableRight="@mipmap/right_btn"
                 android:text="￥180.00元"/>
         </RelativeLayout>
