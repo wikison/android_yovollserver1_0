@@ -35,22 +35,24 @@
 
 
         <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".activity.LoginActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN"/>-->
+
                 <!--<category android:name="android.intent.category.LAUNCHER"/>-->
             <!--</intent-filter>-->
         </activity>
 
+        <activity android:name=".activity.LoginActivity">
+
+        </activity>
+
         <activity android:name=".activity.BeServerGuideFirstActivity"/>
-        <activity android:name=".activity.BeServerGuideSecondActivity"/>
+        <activity android:name=".activity.BeServerGuideSecondActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+        </activity>
         <activity android:name=".activity.BindMerchantActivity"/>
         <activity android:name=".activity.OrderQrCodeActivity"/>
         <activity android:name=".activity.MyCustomerActivity"/>
@@ -61,6 +63,17 @@
         <activity android:name=".activity.ProductRecommendActivity"/>
         <activity android:name=".activity.PlanRecommendActivity"/>
         <activity android:name=".activity.AllServiceActivity"/>
+        <activity android:name=".activity.PositionSetActivity"/>
+        <activity android:name=".activity.SetUserInfoActivity"/>
+        <activity android:name=".activity.search.Search4KeyWordsActivity"/>
+
+
+        <activity android:name=".util.imagepicker.ImageAlbumActivity"/>
+        <activity android:name=".util.imagepicker.ImageGridActivity"/>
+        <activity android:name=".util.imagepicker.SelectPictureActivity"/>
+
+
+
     </application>
 
 </manifest>

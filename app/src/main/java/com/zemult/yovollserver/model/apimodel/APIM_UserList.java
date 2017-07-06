@@ -14,4 +14,6 @@ import java.util.List;
 public class APIM_UserList extends CommonResult {
     @Expose
     public List<M_Userinfo> userList;
+    @Expose
+    public int   maxpage;//当分页获取时，最大的页数
 }

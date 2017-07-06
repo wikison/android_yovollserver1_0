@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.zemult.merchant.view.SmoothListView.SmoothListView
+    <com.zemult.yovollserver.view.SmoothListView.SmoothListView
         android:id="@+id/smoothListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

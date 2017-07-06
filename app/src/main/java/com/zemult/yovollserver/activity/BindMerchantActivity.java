@@ -12,14 +12,20 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.activity.search.SearchMerchantSimpleFragment;
+import com.zemult.yovollserver.aip.SaleuserMerchantHotListRequest;
+import com.zemult.yovollserver.aip.common.CommonPositionRequest;
 import com.zemult.yovollserver.app.BaseActivity;
 import com.zemult.yovollserver.config.Constants;
+import com.zemult.yovollserver.model.apimodel.APIM_PresentList;
+import com.zemult.yovollserver.util.ToastUtil;
 import com.zemult.yovollserver.view.SearchView;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import zema.volley.network.ResponseListener;
 
 /**
  * Created by Wikison on 2017/6/29.
@@ -41,8 +47,6 @@ public class BindMerchantActivity extends BaseActivity {
     private Context mContext;
     private Activity mActivity;
     private SearchMerchantSimpleFragment merchantFragment;
-
-
 
     @Override
     public void setContentView() {
@@ -96,6 +100,10 @@ public class BindMerchantActivity extends BaseActivity {
             }
         });
     }
+
+
+
+
 
     //接收广播回调
     @Override

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.zemult.yovollserver.R;
+import com.zemult.yovollserver.activity.AllServiceActivity;
 import com.zemult.yovollserver.activity.BindMerchantActivity;
 import com.zemult.yovollserver.adapter.HomeChildNew4KeyWordsAdapter;
 import com.zemult.yovollserver.aip.MerchantFirstpageSearchListRequest;
@@ -55,7 +56,7 @@ public class SearchMerchant4KeyWordsFragment extends BaseFragment implements Smo
     private HomeChildNew4KeyWordsAdapter mAdapter; // 主页数据
 
     private Context mContext;
-    private int page = 1, industryId;
+    private int page = 1;
     private String key;
 
     @Override
@@ -83,7 +84,6 @@ public class SearchMerchant4KeyWordsFragment extends BaseFragment implements Smo
 
     private void initData() {
         key = getArguments().getString(Search4KeyWordsActivity.INTENT_KEY);
-        //industryId = getArguments().getInt(AllChangjingActivity.INTENT_INDUSTYR_ID, -1);
         mContext = getActivity();
     }
 
@@ -100,8 +100,8 @@ public class SearchMerchant4KeyWordsFragment extends BaseFragment implements Smo
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 M_Merchant merchant = mAdapter.getItem(position - 1);
-                Intent it = new Intent(mContext, BindMerchantActivity.class);
-                //it.putExtra(MerchantDetailActivity.MERCHANT_ID, merchant.merchantId);
+                Intent it = new Intent(mContext, AllServiceActivity.class);
+                it.putExtra("merchant", merchant);
                 startActivity(it);
             }
         });
@@ -160,7 +160,6 @@ public class SearchMerchant4KeyWordsFragment extends BaseFragment implements Smo
 
         MerchantFirstpageSearchListRequest.Input input = new MerchantFirstpageSearchListRequest.Input();
         input.operateUserId = SlashHelper.userManager().getUserId();
-        input.industryId = industryId;
         input.name = key;
         input.city = Constants.CITYID;
         input.center = Constants.CENTER;
@@ -229,7 +228,6 @@ public class SearchMerchant4KeyWordsFragment extends BaseFragment implements Smo
     }
 
     public void setIndustryIdAndSearch(int industryId) {
-        this.industryId = industryId;
         showPd();
         merchant_firstpage_search_List(false);
     }

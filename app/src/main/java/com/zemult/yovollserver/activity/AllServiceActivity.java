@@ -70,7 +70,7 @@ public class AllServiceActivity extends BaseActivity {
         mActivity = this;
 
         //TODO need M_Merchant or (M_Merchant.merchantId && M_Merchant.reviewstatus)
-        merchant = (M_Merchant) getIntent().getSerializableExtra("");
+        merchant = (M_Merchant) getIntent().getSerializableExtra("merchant");
         if (merchant == null) {
             ToastUtil.showMessage("请先选择商户");
             this.finish();

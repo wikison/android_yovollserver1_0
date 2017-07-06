@@ -62,6 +62,10 @@ public class BeServerGuideSecondActivity extends BaseActivity {
     RoundTextView rtvFinish;
 
     String strPhone;
+
+    int INFOCODE=1;
+    int POSTIONCODE=2;
+    int BINGCODE=3;
     @Override
     public void setContentView() {
         setContentView(R.layout.activity_be_server_2);
@@ -84,7 +88,6 @@ public class BeServerGuideSecondActivity extends BaseActivity {
 
     @OnClick({R.id.rll_bind_merchant, R.id.rll_position, R.id.rll_user_info, R.id.rll_notify, R.id.rll_contact, R.id.tv_protocol, R.id.rtv_finish})
     public void onClick(View view) {
-        Intent intent = null;
         switch (view.getId()) {
             case R.id.rll_bind_merchant:
                 Intent  merchantintent =new Intent(BeServerGuideSecondActivity.this,BindMerchantActivity.class);
@@ -96,7 +99,7 @@ public class BeServerGuideSecondActivity extends BaseActivity {
                 break;
             case R.id.rll_user_info:
                 Intent  infointent =new Intent(BeServerGuideSecondActivity.this,SetUserInfoActivity.class);
-                startActivity(infointent);
+                startActivityForResult(infointent,INFOCODE);
                 break;
             case R.id.rll_notify:
                 break;
@@ -116,4 +119,12 @@ public class BeServerGuideSecondActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==INFOCODE){
+            ToastUtil.showMessage(data.getStringExtra("headString"));
+        }if(requestCode==POSTIONCODE){
+            ToastUtil.showMessage(data.getStringExtra("position_name"));
+        }
+    }
 }

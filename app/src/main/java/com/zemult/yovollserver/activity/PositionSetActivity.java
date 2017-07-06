@@ -14,6 +14,7 @@ import com.zemult.yovollserver.aip.common.CommonPositionRequest;
 import com.zemult.yovollserver.app.BaseActivity;
 import com.zemult.yovollserver.model.M_Reservation;
 import com.zemult.yovollserver.model.apimodel.APIM_PresentList;
+import com.zemult.yovollserver.util.StringUtils;
 import com.zemult.yovollserver.util.ToastUtil;
 import com.zemult.yovollserver.view.BounceScrollView;
 import com.zemult.yovollserver.view.PositionItemView;
@@ -81,7 +82,7 @@ public class PositionSetActivity extends BaseActivity {
     private void initData() {
         mContext = this;
         positionName = getIntent().getStringExtra("position_name");
-        positionName = (positionName.equals("") ? "无" : positionName);
+        positionName = (StringUtils.isBlank(positionName) ? "无" : positionName);
         commonPosition();
 
     }

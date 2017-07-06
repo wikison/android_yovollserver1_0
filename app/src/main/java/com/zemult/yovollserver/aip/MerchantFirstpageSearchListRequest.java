@@ -31,7 +31,6 @@ public class MerchantFirstpageSearchListRequest extends PostStringRequest<Type> 
         public void convertJson() {
             if(operateUserId == 0)
                 ejson = Convert.securityJson(Convert.pairsToJson(
-                        new Pair<String, String>("industryId", industryId + ""),
                         new Pair<String, String>("name", name),
                         new Pair<String, String>("center", center),
                         new Pair<String, String>("city", city),
@@ -40,7 +39,6 @@ public class MerchantFirstpageSearchListRequest extends PostStringRequest<Type> 
             else
                 ejson = Convert.securityJson(Convert.pairsToJson(
                         new Pair<String, String>("operateUserId", operateUserId + ""),
-                        new Pair<String, String>("industryId", industryId + ""),
                         new Pair<String, String>("name", name),
                         new Pair<String, String>("center", center),
                         new Pair<String, String>("city", city),
@@ -52,7 +50,7 @@ public class MerchantFirstpageSearchListRequest extends PostStringRequest<Type> 
     }
 
     public MerchantFirstpageSearchListRequest(Input input, ResponseListener listener) {
-        super(Urls.BASIC_URL+Urls.MERCHANT_FIRSTPAGE_SEARCH_LIST, input.ejson, new TypeToken<APIM_MerchantList>() {
+        super(Urls.BASIC_URL+Urls.SALEUSER_MERCHANT_SEARCH_LIST, input.ejson, new TypeToken<APIM_MerchantList>() {
         }.getType(), listener);
 
     }

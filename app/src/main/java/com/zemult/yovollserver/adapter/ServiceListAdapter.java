@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.flyco.roundview.RoundTextView;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.model.M_Service;
+import com.zemult.yovollserver.util.StringUtils;
 import com.zemult.yovollserver.view.FixedGridView;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class ServiceListAdapter extends BaseListAdapter<M_Service> {
         }
 
         M_Service entity = getData().get(position);
-        mImageManager.loadUrlImage(entity.icon, holder.iv, "@320h");
+        mImageManager.loadUrlImage(StringUtils.isBlank(entity.icon)?"":entity.icon, holder.iv, "@320h");
         holder.tvName.setText(entity.name);
         if (entity.childs != null
                 && !entity.childs.isEmpty()) {

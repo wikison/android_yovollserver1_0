@@ -13,8 +13,10 @@ import android.widget.RelativeLayout;
 
 import com.android.volley.VolleyError;
 import com.zemult.yovollserver.R;
+import com.zemult.yovollserver.activity.AllServiceActivity;
 import com.zemult.yovollserver.adapter.HomeChildNewSimpleAdapter;
 import com.zemult.yovollserver.aip.Merchant2SearchListBandRequest;
+import com.zemult.yovollserver.aip.SaleuserMerchantHotListRequest;
 import com.zemult.yovollserver.aip.UserCheckSaleUser1_2_2Request;
 import com.zemult.yovollserver.app.BaseFragment;
 import com.zemult.yovollserver.config.Constants;
@@ -47,14 +49,14 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
     @Bind(R.id.ll_no_bind)
     LinearLayout llNoBind;
 
-    Merchant2SearchListBandRequest request;
-    UserCheckSaleUser1_2_2Request checkSaleUser1_2_2Request;
+    private SaleuserMerchantHotListRequest request;
+    private int page = 1;
 
     private HomeChildNewSimpleAdapter mAdapter; // 主页数据
 
     private Context mContext;
+
     private String key;
-    private int page = 1, industryId;
 
     @Override
     protected void lazyLoad() {
@@ -80,8 +82,6 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
     }
 
     private void initData() {
-        // key = getArguments().getString(SearchActivity.INTENT_KEY);
-        //industryId = getArguments().getInt(AllChangjingActivity.INTENT_INDUSTYR_ID, -1);
         mContext = getActivity();
     }
 
@@ -99,17 +99,19 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 M_Merchant merchant = mAdapter.getItem(position - 1);
                 Intent intent = new Intent(mContext, Search4KeyWordsActivity.class);
-                intent.putExtra(Search4KeyWordsActivity.INTENT_KEY, merchant.name);
+                intent.putExtra("key", merchant.name);
                 startActivity(intent);
 
             }
         });
-
     }
+
 
     /**
      * 判断用户是否可以申请商家的服务管家
      */
+    private UserCheckSaleUser1_2_2Request checkSaleUser1_2_2Request;
+
     private void user_check_saleuser_1_2_2(final M_Merchant merchant) {
         showPd();
         if (checkSaleUser1_2_2Request != null) {
@@ -129,11 +131,9 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
             @Override
             public void onResponse(Object response) {
                 if (((CommonResult) response).status == 1) {
-//                    Intent it = new Intent(mContext, TabManageActivity.class);
-//                    it.putExtra(TabManageActivity.TAG, merchant.merchantId);
-//                    it.putExtra(TabManageActivity.NAME, merchant.name);
-//                    it.putExtra(TabManageActivity.COMEFROM, 1);
-//                    startActivity(it);
+                    Intent it = new Intent(mContext, AllServiceActivity.class);
+                    it.putExtra("merchantId", merchant.merchantId);
+                    startActivity(it);
                 } else {
                     ToastUtil.showMessage(((CommonResult) response).info);
                 }
@@ -147,28 +147,30 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
         if (key.equals(this.key))
             return;
 
-        Intent intent = new Intent(getActivity(), Search4KeyWordsActivity.class);
-        intent.putExtra("key", key);
+        Intent intent =new Intent(getActivity(),Search4KeyWordsActivity.class);
+        intent.putExtra("key",key);
         startActivity(intent);
+//        showPd();
+//        this.key = key;
+//        merchant_firstpage_search_List(false);
     }
 
-    //搜索商户列表
+    //搜索方案列表
     public void merchant_firstpage_search_List(final boolean isLoadMore) {
         if (request != null) {
             request.cancel();
         }
 
-        Merchant2SearchListBandRequest.Input input = new Merchant2SearchListBandRequest.Input();
+        SaleuserMerchantHotListRequest.Input input = new SaleuserMerchantHotListRequest.Input();
         input.operateUserId = SlashHelper.userManager().getUserId();
-        input.industryId = industryId;
         input.name = key;
         input.city = Constants.CITYID;
         input.center = Constants.CENTER;
         input.page = isLoadMore ? ++page : (page = 1);
         input.rows = Constants.ROWS;
 
-        input.convertJson();
-        request = new Merchant2SearchListBandRequest(input, new ResponseListener() {
+        input.convertJosn();
+        request = new SaleuserMerchantHotListRequest(input, new ResponseListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 smoothListView.stopLoadMore();
@@ -228,9 +230,4 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
         merchant_firstpage_search_List(true);
     }
 
-    public void setIndustryIdAndSearch(int industryId) {
-        this.industryId = industryId;
-        showPd();
-        merchant_firstpage_search_List(false);
-    }
 }
