@@ -515,10 +515,8 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <style name="text_12_black_333">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/margin_24dp</item>
-        <item name="android:paddingLeft">@dimen/margin_12dp</item>
-        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/font_black_333</item>
         <item name="android:textSize">@dimen/font_24px</item>
     </style>
