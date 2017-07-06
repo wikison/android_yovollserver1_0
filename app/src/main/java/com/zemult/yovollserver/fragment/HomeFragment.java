@@ -14,19 +14,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
 import com.flyco.roundview.RoundLinearLayout;
 import com.flyco.roundview.RoundTextView;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.activity.MyCustomerActivity;
+import com.zemult.yovollserver.aip.CommonGetadvertListRequest;
 import com.zemult.yovollserver.app.BaseFragment;
 import com.zemult.yovollserver.config.Constants;
+import com.zemult.yovollserver.model.M_Ad;
+import com.zemult.yovollserver.model.apimodel.APIM_CommonGetadvertList;
 import com.zemult.yovollserver.util.IntentUtil;
+import com.zemult.yovollserver.util.ToastUtil;
 import com.zemult.yovollserver.view.FixedListView;
+import com.zemult.yovollserver.view.HeaderAdView;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.grantland.widget.AutofitTextView;
+import zema.volley.network.ResponseListener;
 
 /**
  * Created by Wikison on 2017/6/23.
@@ -84,14 +93,10 @@ public class HomeFragment extends BaseFragment {
 
     private Context mContext;
     private Activity mActivity;
+    private HeaderAdView headerAdView; // 广告视图
 
+    private CommonGetadvertListRequest commonGetadvertListRequest;
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        //get_user_info_owner_request();
-
-    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -103,7 +108,6 @@ public class HomeFragment extends BaseFragment {
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!hidden) {
-            //get_user_info_owner_request();
         }
     }
 
@@ -117,11 +121,49 @@ public class HomeFragment extends BaseFragment {
     private void initData() {
         mContext = getActivity();
         mActivity = getActivity();
+
+        getNetworkData();
+
+    }
+
+    private void getNetworkData() {
+        commonGetAdvertList();
+    }
+
+    //获取  广告列表
+    private void commonGetAdvertList() {
+        if (commonGetadvertListRequest != null) {
+            commonGetadvertListRequest.cancel();
+        }
+        CommonGetadvertListRequest.Input input = new CommonGetadvertListRequest.Input();
+        input.page = 1;//页面编号(-1:表示全部;0:app开启页1:首页广告位2:我的斜杠3:我是商家)
+
+        input.convertJosn();
+        commonGetadvertListRequest = new CommonGetadvertListRequest(input, new ResponseListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+
+            @Override
+            public void onResponse(Object response) {
+                if (((APIM_CommonGetadvertList) response).status == 1) {
+                    setAd(((APIM_CommonGetadvertList) response).advertList);
+                } else {
+                    ToastUtil.showMessage(((APIM_CommonGetadvertList) response).info);
+                }
+            }
+        });
+        sendJsonRequest(commonGetadvertListRequest);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    public void setAd(List<M_Ad> advertList) {
+        headerAdView = new HeaderAdView(mActivity, rllAdContainer.getHeight());
+        headerAdView.fillView(advertList, rllAdContainer);
     }
 
     @Override

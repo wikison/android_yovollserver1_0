@@ -89,6 +89,28 @@ public class ImageManager {
         }
     }
 
+    // 加载圆角图片
+    public void loadRoundImage2(String url, ImageView imageView, float roundPx, String rule) {
+
+        if (url != null && url.indexOf("xiegang.oss") != -1) {
+            url = url.replace("xiegang.oss", "xiegang.img");
+            Glide.with(mContext)
+                    .load(url + rule)
+                    .error(R.mipmap.tupiansilie_icon)
+                    .crossFade()
+                    .bitmapTransform(new GlideRoundTransform(mContext, roundPx))
+                    .into(imageView);
+        } else {
+            //不是网络图片加载本地图片
+            Glide.with(mContext)
+                    .load(url)
+                    .error(R.mipmap.tupiansilie_icon)
+                    .crossFade()
+                    .bitmapTransform(new GlideRoundTransform(mContext, roundPx))
+                    .into(imageView);
+        }
+    }
+
     // 加载网络图片
     public void loadUrlImageWithDefaultImg(String url, ImageView imageView, String rule, int defaultImg) {
         if (url.indexOf("xiegang.oss") != -1) {
