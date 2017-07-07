@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.flyco.roundview.RoundTextView;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.adapter.ServiceListAdapter;
 import com.zemult.yovollserver.aip.common.CommonMerchantServiceListRequest;
@@ -86,7 +87,7 @@ public class AllServiceActivity extends BaseActivity {
         tvRight.setVisibility(View.VISIBLE);
         tvRight.setText("保存");
 
-        serviceListAdapter = new ServiceListAdapter(this, serviceList, merchant);
+        serviceListAdapter = new ServiceListAdapter(this, serviceList);
         lvList.setAdapter(serviceListAdapter);
     }
 
@@ -94,7 +95,23 @@ public class AllServiceActivity extends BaseActivity {
 
         serviceListAdapter.setOnTextTaskClickListener(new ServiceListAdapter.ItemServiceClickListener() {
             @Override
-            public void onItemClick(View v, M_Service entity) {}
+            public void onItemClick(View v, M_Service entity) {
+                RoundTextView rtvName = (RoundTextView) v;
+                if (!v.isSelected() && selectedIds.size() + 1 > maxIds) {
+                    ToastUtil.showMessage("最多选择" + maxIds + "项");
+                    return;
+                }
+                if (selectedIds.contains(entity)) {
+                    selectedIds.remove(entity);
+                    rtvName.getDelegate().setBackgroundColor(0xffeeeeee);
+                    rtvName.setTextColor(0xff666666);
+                } else {
+                    selectedIds.add(entity);
+                    rtvName.getDelegate().setBackgroundColor(0xffb88e42);
+                    rtvName.setTextColor(0xffffffff);
+                }
+                v.setSelected(selectedIds.contains(entity));
+            }
         });
     }
 

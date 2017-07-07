@@ -135,7 +135,6 @@ public class BeServerGuideFirstActivity extends BaseActivity {
                 @Override
                 public void onResponse(Object response) {
                     int status = ((CommonResult) response).status;
-                    status = 1;
                     if (status == 1) {
                         Intent intent = new Intent(BeServerGuideFirstActivity.this, BeServerGuideSecondActivity.class);
                         intent.putExtra("strPhone", strPhone);
