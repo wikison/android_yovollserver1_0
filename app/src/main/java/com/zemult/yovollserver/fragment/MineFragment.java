@@ -1,11 +1,11 @@
 package com.zemult.yovollserver.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zemult.yovollserver.R;
+import com.zemult.yovollserver.activity.mine.MySettingActivity;
 import com.zemult.yovollserver.app.BaseFragment;
 import com.zemult.yovollserver.config.Constants;
+import com.zemult.yovollserver.util.IntentUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,7 +34,7 @@ public class MineFragment extends BaseFragment {
     @Bind(R.id.tv_name)
     TextView tvName;
     @Bind(R.id.rl_my_info)
-    RelativeLayout rlMyInfo;
+    LinearLayout rlMyInfo;
     @Bind(R.id.tv_unsure_num)
     TextView tvUnsureNum;
     @Bind(R.id.ll_service_record)
@@ -75,6 +77,7 @@ public class MineFragment extends BaseFragment {
     int isSaleUser;
 
     private Context mContext;
+    private Activity mActivity;
     // UserInfoOwnerRequest userInfoOwnerRequest;
     //User2SaleUserLoginRequest user2SaleUserLoginRequest;
 
@@ -103,8 +106,13 @@ public class MineFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mContext = getActivity();
+        initData();
 
+    }
+
+    private void initData() {
+        mContext = getActivity();
+        mActivity = getActivity();
     }
 
     @Override
@@ -136,6 +144,7 @@ public class MineFragment extends BaseFragment {
             case R.id.rl_my_msg:
                 break;
             case R.id.rl_set:
+                IntentUtil.start_activity(mActivity, MySettingActivity.class);
                 break;
         }
     }
@@ -147,11 +156,11 @@ public class MineFragment extends BaseFragment {
         if (intent == null || TextUtils.isEmpty(intent.getAction())) {
             return;
         }
-        Log.d(getClass().getName(), "[onReceive] action:" + intent.getAction());
         if (Constants.BROCAST_UPDATEMYINFO.equals(intent.getAction())) {
-            //get_user_info_owner_request();
         }
 
+        if (Constants.BROCAST_BE_SERVER_MANAGER_SUCCESS.equals(intent.getAction())) {
+        }
     }
 
 

@@ -149,6 +149,7 @@
                     android:background="@null"
                     android:gravity="right"
                     android:hint="输入楼层/房间/包厢号/桌号等信息"
+                    android:imeOptions="actionNext"
                     android:maxLength="15"
                     android:paddingRight="8dp"
                     android:textColorHint="@color/font_black_999"/>
@@ -178,6 +179,7 @@
                     android:background="@null"
                     android:gravity="right"
                     android:hint="如需收取预约订金请输入金额"
+                    android:imeOptions="actionDone"
                     android:inputType="numberDecimal"
                     android:maxLength="5"
                     android:paddingRight="8dp"

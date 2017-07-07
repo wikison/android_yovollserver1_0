@@ -15,17 +15,21 @@
         <ImageView
             android:id="@+id/iv"
             android:layout_width="75dp"
-            android:layout_height="75dp"/>
+            android:layout_height="75dp"
+            android:scaleType="centerCrop"/>
 
         <TextView
             android:id="@+id/tv_pic_num"
             style="@style/text_16_black_666"
+            android:layout_width="15dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:background="@color/white"
+            android:layout_height="15dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#80ffffff"
             android:gravity="center"
-            android:padding="2dp"
-            android:text=""
+            android:text="9"
             android:textSize="11sp"/>
     </RelativeLayout>
 

@@ -1,0 +1,252 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_head"/>
+
+    <com.zemult.yovollserver.view.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_f2"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/ll_account"
+                style="@style/layout_item_click"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:clickable="true"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="账户与安全"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/right_btn"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_liuliang"
+                style="@style/layout_item"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="@string/liuliang_moshi"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/sc_liuliang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:checked="false"/>
+
+                <View
+                    style="@style/divider"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_xiaoxi_tixing"
+                style="@style/layout_item"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="@string/xiaoxi_tingxing"/>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/sc_xiaoxi_tixing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:checked="true"/>
+
+                <View
+                    style="@style/divider_1px"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_black"
+                style="@style/layout_item_click"
+                android:clickable="true"
+                android:paddingLeft="12dp"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="黑名单管理"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/right_btn"/>
+
+                <View
+                    style="@style/divider"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_invite_friend"
+                style="@style/layout_item_click"
+                android:clickable="true"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="@string/invite_friend"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/right_btn"/>
+
+                <View
+                    style="@style/divider"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_empty_cache"
+                style="@style/layout_item_click"
+                android:clickable="true"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="@string/empty_cache"/>
+
+                <TextView
+                    android:id="@+id/tv_cash_size"
+                    style="@style/my_setting_text"
+                    android:layout_marginRight="18dp"
+                    android:layout_toLeftOf="@+id/iv_empty_cache_right"
+                    android:text="96.8M"
+                    android:textColor="#bfbfbf"
+                    android:textSize="@dimen/font_30px"/>
+
+
+                <ImageView
+                    android:id="@+id/iv_empty_cache_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/right_btn"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_fankui"
+                style="@style/layout_item_click"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:clickable="true"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="@string/yijian_fankui"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/right_btn"/>
+
+                <View
+                    style="@style/divider"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_help"
+                style="@style/layout_item_click"
+                android:background="@drawable/ripple_item_clicked2"
+                android:clickable="true"
+                android:paddingLeft="12dp"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="@string/help"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/right_btn"/>
+
+                <View
+                    style="@style/divider"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_about_us"
+                style="@style/layout_item_click"
+                android:clickable="true"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    style="@style/my_setting_text"
+                    android:text="@string/about_us"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/right_btn"/>
+            </RelativeLayout>
+
+            <View
+                style="@style/divider"
+                android:layout_alignParentBottom="true"/>
+
+            <!--开启debug-->
+            <RelativeLayout
+                android:id="@+id/ll_debug"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:clickable="true"
+                android:paddingLeft="12dp">
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </com.zemult.yovollserver.view.BounceScrollView>
+</LinearLayout>
