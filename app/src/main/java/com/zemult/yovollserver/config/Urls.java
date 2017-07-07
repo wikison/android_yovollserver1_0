@@ -35,7 +35,6 @@ public class Urls {
     //注册登录登出
     public static String USER_ISREGISTER = "user_isRegister.do";
     public static String USER_REGISTER = "user_register_1_1.do";
-    public static String USER_LOGIN = "user_login.do";
     public static String USER_LOGOUT = "user_logout.do";
     public static String USER_FINDPWD = "user_findpwd.do";
 
@@ -696,8 +695,6 @@ public class Urls {
     public static String SALEUSER_MERCHANT_HOT_LIST = "saleuser_merchant_hot_list";
     //获取服务项列表(注册管家选择)
     public static String COMMON_MERCHANT_SERVICE_LIST = "common_merchant_service_list";
-    //查看服务管家详情
-    public static String USER2_SALEUSER_INFO = "user2_saleUser_info";
     //用户注册申请成为商家的服务管家(没有就新增)
     public static String SALEUSER_ADD_MERCHANT = "saleuser_add_merchant";
     //管家登陆

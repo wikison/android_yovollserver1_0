@@ -14,4 +14,6 @@ import java.util.List;
 public class APIM_PlanList extends CommonResult {
     @Expose
     public List<M_Plan> merchantPlanList;
+    @Expose
+    public int maxpage;
 }

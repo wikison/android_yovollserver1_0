@@ -16,11 +16,15 @@ import zema.volley.network.ResponseListener;
 public class Merchant2PlanListRequest extends PostStringRequest<Type> {
     public static class Input {
         public int merchantId;    //	商户id
+        public int page;
+        public int rows;
         public String ejson;
 
         public void convertJson() {
             ejson = Convert.securityJson(Convert.pairsToJson(
-                    new Pair<String, String>("merchantId", merchantId + "")));
+                    new Pair<String, String>("merchantId", merchantId + ""),
+                    new Pair<String, String>("page", page + ""),
+                    new Pair<String, String>("rows", rows + "")));
         }
     }
 

@@ -32,7 +32,8 @@ public class M_Product implements Serializable {
     @Expose
     public double discount;    //	佣金折扣(%---5%存5.0)
     @Expose
-    public double params;    //	参数(图片或键值对-暂定多个";"分隔)
+    public String
+            params;    //	参数(图片或键值对-暂定多个";"分隔)
     @Expose
     public int stockNum;    //	库存数量
     @Expose

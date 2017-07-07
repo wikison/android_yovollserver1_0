@@ -16,7 +16,7 @@ import zema.volley.network.ResponseListener;
 
 public class UserLoginRequest extends PostStringRequest<Type> {
     public UserLoginRequest(Input input, ResponseListener listener) {
-        super(Urls.BASIC_URL + Urls.USER_LOGIN, input.ejson, new TypeToken<APIM_UserLogin>() {
+        super(Urls.BASIC_URL + Urls.SALEUSER_LOGIN, input.ejson, new TypeToken<APIM_UserLogin>() {
         }.getType(), listener);
     }
 

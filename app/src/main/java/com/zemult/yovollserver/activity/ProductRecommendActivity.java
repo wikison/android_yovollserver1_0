@@ -91,7 +91,9 @@ public class ProductRecommendActivity extends BaseActivity {
             merchant2ProductListRequest.cancel();
         }
         Merchant2ProductListRequest.Input input = new Merchant2ProductListRequest.Input();
-        input.merchantId = 0;
+        input.merchantId = 354256;
+        input.page = 1;
+        input.rows = 100;
         input.convertJson();
         merchant2ProductListRequest = new Merchant2ProductListRequest(input, new ResponseListener() {
             @Override
@@ -149,7 +151,7 @@ public class ProductRecommendActivity extends BaseActivity {
             if (!StringUtils.isBlank(entity.pics)) {
                 String[] arrayStr = entity.pics.split(",");
                 imageManager.loadUrlImage(arrayStr[0], holder.iv, "@320h");
-                holder.tvPicNum.setText(arrayStr.length);
+                holder.tvPicNum.setText(arrayStr.length+"");
             }
             holder.tvName.setText(entity.name);
             holder.tvNewPrice.setText(String.format("￥%s", Convert.getMoneyString(entity.newPrice)));

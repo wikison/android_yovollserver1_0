@@ -90,7 +90,9 @@ public class PlanRecommendActivity extends BaseActivity {
             merchant2PlanListRequest.cancel();
         }
         Merchant2PlanListRequest.Input input = new Merchant2PlanListRequest.Input();
-        input.merchantId = 0;
+        input.merchantId = 354256;
+        input.page = 1;
+        input.rows = 100;
         input.convertJson();
         merchant2PlanListRequest = new Merchant2PlanListRequest(input, new ResponseListener() {
             @Override

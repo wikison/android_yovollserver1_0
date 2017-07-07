@@ -14,4 +14,7 @@ import java.util.List;
 public class APIM_ProductList extends CommonResult {
     @Expose
     public List<M_Product> productList;
+    @Expose
+    public int maxpage;
+
 }
