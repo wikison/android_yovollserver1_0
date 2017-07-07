@@ -89,7 +89,7 @@ public class MyCustomerActivity extends BaseActivity implements SmoothListView.I
         smoothListView.setSmoothListViewListener(this);
         smoothListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-        getCustomerList();
+        getCustomerList(true);
 
     }
 
@@ -117,14 +117,18 @@ public class MyCustomerActivity extends BaseActivity implements SmoothListView.I
         });
     }
 
-    private void getCustomerList() {
+    private void getCustomerList(boolean firstLoad) {
         if (userFansListRequest != null) {
             userFansListRequest.cancel();
         }
         User2SaleUserFanListRequest.Input input = new User2SaleUserFanListRequest.Input();
         //TODO input.saleUserId = userId;
         input.name = name;
-        input.page = page;
+        if (firstLoad) {
+            input.page = 1;
+        } else {
+            input.page = page;
+        }
         input.rows = Constants.ROWS;     //每页显示的行数
         input.convertJson();
         userFansListRequest = new User2SaleUserFanListRequest(input, new ResponseListener() {
@@ -155,7 +159,7 @@ public class MyCustomerActivity extends BaseActivity implements SmoothListView.I
                                             holder.setCircleImage(R.id.iv_head, mCustomer.head);
                                         }
                                         holder.setText(R.id.tv_name, mCustomer.name);
-                                        holder.setText(R.id.tv_merchant_name, mCustomer.merchantName+ "  "+mCustomer.getPosition());
+                                        holder.setText(R.id.tv_merchant_name, mCustomer.merchantName + "  " + mCustomer.getPosition());
 
                                         holder.setOnclickListener(R.id.ll_root, new View.OnClickListener() {
                                             @Override
@@ -207,11 +211,13 @@ public class MyCustomerActivity extends BaseActivity implements SmoothListView.I
 
     @Override
     public void onRefresh() {
-
+        showPd();
+        getCustomerList(true);
     }
 
     @Override
     public void onLoadMore() {
+        getCustomerList(false);
 
     }
 }

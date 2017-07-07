@@ -77,7 +77,7 @@ public class ProductRecommendActivity extends BaseActivity {
     }
 
     private void initView() {
-        lhTvTitle.setText("服务方案推荐");
+        lhTvTitle.setText("营销产品推荐");
         adapter = new RecommendAdapter(mContext, mDatas);
         lv.setAdapter(adapter);
     }

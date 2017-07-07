@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 import com.flyco.roundview.RoundTextView;
 import com.zemult.yovollserver.R;
+import com.zemult.yovollserver.model.M_Merchant;
 import com.zemult.yovollserver.model.M_Service;
 import com.zemult.yovollserver.util.StringUtils;
+import com.zemult.yovollserver.util.ToastUtil;
 import com.zemult.yovollserver.view.FixedGridView;
 
 import java.util.ArrayList;
@@ -26,6 +28,9 @@ import butterknife.ButterKnife;
 
 public class ServiceListAdapter extends BaseListAdapter<M_Service> {
     ItemServiceClickListener itemServiceClickListener;
+    ArrayList<M_Service> selectedIds = new ArrayList<M_Service>();
+    M_Merchant merchant;
+    int maxIds;
 
     public interface ItemServiceClickListener {
         void onItemClick(View v, M_Service entity);
@@ -35,8 +40,11 @@ public class ServiceListAdapter extends BaseListAdapter<M_Service> {
         this.itemServiceClickListener = itemServiceClickListener;
     }
 
-    public ServiceListAdapter(Context context, List<M_Service> list) {
+    public ServiceListAdapter(Context context, List<M_Service> list, M_Merchant merchant) {
         super(context, list);
+        this.merchant = merchant;
+        maxIds = (merchant.reviewstatus == 2 ? Integer.MAX_VALUE : 1);
+
     }
 
     public void setData(List<M_Service> list) {
@@ -118,16 +126,27 @@ public class ServiceListAdapter extends BaseListAdapter<M_Service> {
 
             final M_Service entity = serviceList.get(position);
             holder.rtvName.setText(entity.name);
-            //boolean isSelected = selectedIds.contains(entity.serviceId);
+            boolean isSelected = selectedIds.contains(entity.serviceId);
             holder.rtvName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (itemServiceClickListener != null) {
-                        itemServiceClickListener.onItemClick(v, entity);
+                    if (!v.isSelected() && selectedIds.size() + 1 > maxIds) {
+                        ToastUtil.showMessage("最多选择" + maxIds + "项");
+                        return;
                     }
+                    if (selectedIds.contains(entity)) {
+                        selectedIds.remove(entity);
+                        holder.rtvName.getDelegate().setBackgroundColor(0xffeeeeee);
+                        holder.rtvName.setTextColor(0xff666666);
+                    } else {
+                        selectedIds.add(entity);
+                        holder.rtvName.getDelegate().setBackgroundColor(0xffb88e42);
+                        holder.rtvName.setTextColor(0xffffffff);
+                    }
+                    v.setSelected(selectedIds.contains(entity));
                 }
             });
-            //holder.rtvName.setSelected(isSelected);
+            holder.rtvName.setSelected(isSelected);
 
             return convertView;
         }

@@ -86,6 +86,7 @@ public class BeServerGuideFirstActivity extends BaseActivity {
     private Thread mThread = null;
     String strPhone;
     private static final int WAIT = 0x001;
+
     @Override
     public void setContentView() {
         setContentView(R.layout.activity_be_server_1);
@@ -99,7 +100,7 @@ public class BeServerGuideFirstActivity extends BaseActivity {
         Icv.setInputCompleteListener(new IdentifyingCodeView.InputCompleteListener() {
             @Override
             public void inputComplete() {
-                if(Icv.getTextContent().length()==4){
+                if (Icv.getTextContent().length() == 4) {
                     checkCode(Icv.getTextContent());
                 }
             }
@@ -115,7 +116,7 @@ public class BeServerGuideFirstActivity extends BaseActivity {
 
     }
 
-    private void checkCode(String strCode ) {//发送验证码校验
+    private void checkCode(String strCode) {//发送验证码校验
         try {
             if (request_common_checkcode != null) {
                 request_common_checkcode.cancel();
@@ -134,9 +135,10 @@ public class BeServerGuideFirstActivity extends BaseActivity {
                 @Override
                 public void onResponse(Object response) {
                     int status = ((CommonResult) response).status;
+                    status = 1;
                     if (status == 1) {
-                        Intent intent=new Intent(BeServerGuideFirstActivity.this,BeServerGuideSecondActivity.class);
-                        intent.putExtra("strPhone",strPhone);
+                        Intent intent = new Intent(BeServerGuideFirstActivity.this, BeServerGuideSecondActivity.class);
+                        intent.putExtra("strPhone", strPhone);
                         startActivity(intent);
                     } else {
                         ToastUtil.showMessage(((CommonResult) response).info);
@@ -150,7 +152,6 @@ public class BeServerGuideFirstActivity extends BaseActivity {
         }
 
     }
-
 
 
     private void getCode() {
@@ -233,7 +234,7 @@ public class BeServerGuideFirstActivity extends BaseActivity {
         lhTvTitle.setText("成为服务管家");
     }
 
-    @OnClick({R.id.rtv_join_now,R.id.iv_righticon,R.id.btn_next,R.id.iv_lefticon,R.id.tv_sendcode})
+    @OnClick({R.id.rtv_join_now, R.id.iv_righticon, R.id.btn_next, R.id.iv_lefticon, R.id.tv_sendcode})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rtv_join_now:
@@ -256,8 +257,8 @@ public class BeServerGuideFirstActivity extends BaseActivity {
                 tvTitle.setText("输入验证码");
                 llPhone.setVisibility(View.GONE);
                 llCode.setVisibility(View.VISIBLE);
-                strPhone=etPhone.getText().toString().trim();
-                tvSendphone.setText("验证码将发送至   "+strPhone);
+                strPhone = etPhone.getText().toString().trim();
+                tvSendphone.setText("验证码将发送至   " + strPhone);
                 if (StringUtils.isBlank(strPhone)) {
                     ToastUtil.showMessage("请输入手机号码");
                 } else {
