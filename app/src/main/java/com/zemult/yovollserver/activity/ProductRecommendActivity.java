@@ -51,7 +51,7 @@ public class ProductRecommendActivity extends BaseActivity {
     RoundLinearLayout rllSure;
 
     Merchant2ProductListRequest merchant2ProductListRequest;
-    ArrayList<Integer> selectedIds = new ArrayList<Integer>();
+    ArrayList<M_Product> selectedIds = new ArrayList<M_Product>();
     List<M_Product> mDatas = new ArrayList<M_Product>();
     Context mContext;
     Activity mActivity;
@@ -162,16 +162,16 @@ public class ProductRecommendActivity extends BaseActivity {
             holder.tvSaleNum.setText(String.format("已售 %d", entity.saleNum));
             holder.tvStockNum.setText(String.format("库存 %d", entity.stockNum));
 
-            boolean isSelected = selectedIds.contains(entity.productId);
+            boolean isSelected = selectedIds.contains(entity);
             holder.btnCheck.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (selectedIds.contains(entity.productId)) {
-                        selectedIds.remove(entity.productId);
+                    if (selectedIds.contains(entity)) {
+                        selectedIds.remove(entity);
                     } else {
-                        selectedIds.add(entity.productId);
+                        selectedIds.add(entity);
                     }
-                    v.setSelected(selectedIds.contains(entity.productId));
+                    v.setSelected(selectedIds.contains(entity));
                     tvSelect.setText("已选择" + selectedIds.size() + "项");
                 }
             });

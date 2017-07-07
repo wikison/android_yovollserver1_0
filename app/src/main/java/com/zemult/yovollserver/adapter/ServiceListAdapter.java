@@ -27,7 +27,6 @@ import butterknife.ButterKnife;
 public class ServiceListAdapter extends BaseListAdapter<M_Service> {
     ItemServiceClickListener itemServiceClickListener;
 
-
     public interface ItemServiceClickListener {
         void onItemClick(View v, M_Service entity);
     }
@@ -58,7 +57,7 @@ public class ServiceListAdapter extends BaseListAdapter<M_Service> {
         }
 
         M_Service entity = getData().get(position);
-        mImageManager.loadUrlImage(StringUtils.isBlank(entity.icon)?"":entity.icon, holder.iv, "@320h");
+        mImageManager.loadUrlImage(StringUtils.isBlank(entity.icon) ? "" : entity.icon, holder.iv, "@320h");
         holder.tvName.setText(entity.name);
         if (entity.childs != null
                 && !entity.childs.isEmpty()) {
@@ -112,9 +111,9 @@ public class ServiceListAdapter extends BaseListAdapter<M_Service> {
             if (convertView == null) {
                 convertView = LayoutInflater.from(mContext).inflate(R.layout.item_merchant_service, null);
                 holder = new ViewHolder(convertView);
-                convertView.setTag(holder);
+                convertView.setTag(R.string.app_name, holder);
             } else {
-                holder = (ViewHolder) convertView.getTag();
+                holder = (ViewHolder) convertView.getTag(R.string.app_name);
             }
 
             final M_Service entity = serviceList.get(position);
@@ -123,7 +122,7 @@ public class ServiceListAdapter extends BaseListAdapter<M_Service> {
             holder.rtvName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(itemServiceClickListener!=null){
+                    if (itemServiceClickListener != null) {
                         itemServiceClickListener.onItemClick(v, entity);
                     }
                 }

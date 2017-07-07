@@ -52,7 +52,7 @@ public class PlanRecommendActivity extends BaseActivity {
     RoundLinearLayout rllSure;
 
     Merchant2PlanListRequest merchant2PlanListRequest;
-    ArrayList<Integer> selectedIds = new ArrayList<Integer>();
+    ArrayList<M_Plan> selectedIds = new ArrayList<M_Plan>();
     List<M_Plan> mDatas = new ArrayList<M_Plan>();
     Context mContext;
     Activity mActivity;
@@ -158,16 +158,16 @@ public class PlanRecommendActivity extends BaseActivity {
             holder.tvPrePrice.setText(String.format("订金￥%s", Convert.getMoneyString(entity.prePrice)));
             holder.tvNote.setText(entity.note);
 
-            boolean isSelected = selectedIds.contains(entity.planId);
+            boolean isSelected = selectedIds.contains(entity);
             holder.btnCheck.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (selectedIds.contains(entity.planId)) {
-                        selectedIds.remove(entity.planId);
+                    if (selectedIds.contains(entity)) {
+                        selectedIds.remove(entity);
                     } else {
-                        selectedIds.add(entity.planId);
+                        selectedIds.add(entity);
                     }
-                    v.setSelected(selectedIds.contains(entity.planId));
+                    v.setSelected(selectedIds.contains(entity));
                     tvSelect.setText("已选择" + selectedIds.size() + "项");
                 }
             });
