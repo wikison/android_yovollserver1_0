@@ -29,6 +29,7 @@ import zema.volley.network.ResponseListener;
 
 /**
  * Created by Wikison on 2017/7/5.
+ * 服务项选择
  */
 
 public class AllServiceActivity extends BaseActivity {
@@ -48,7 +49,7 @@ public class AllServiceActivity extends BaseActivity {
 
     CommonMerchantServiceListRequest commonMerchantServiceListRequest;
     List<M_Service> serviceList = new ArrayList<M_Service>();
-    ArrayList<Integer> selectedIds = new ArrayList<Integer>();
+    ArrayList<M_Service> selectedIds = new ArrayList<M_Service>();
     ServiceListAdapter serviceListAdapter;
     M_Merchant merchant;
     int maxIds;
@@ -98,16 +99,16 @@ public class AllServiceActivity extends BaseActivity {
                     ToastUtil.showMessage("最多选择" + maxIds + "项");
                     return;
                 }
-                if (selectedIds.contains(entity.serviceId)) {
-                    selectedIds.remove(entity.serviceId);
-                    rtvName.getDelegate().setBackgroundColor(0xeeeeee);
-                    rtvName.setTextColor(0x666666);
+                if (selectedIds.contains(entity)) {
+                    selectedIds.remove(entity);
+                    rtvName.getDelegate().setBackgroundColor(0xffeeeeee);
+                    rtvName.setTextColor(0xff666666);
                 } else {
-                    selectedIds.add(entity.serviceId);
-                    rtvName.getDelegate().setBackgroundColor(0xb88e42);
-                    rtvName.setTextColor(0xffffff);
+                    selectedIds.add(entity);
+                    rtvName.getDelegate().setBackgroundColor(0xffb88e42);
+                    rtvName.setTextColor(0xffffffff);
                 }
-                v.setSelected(selectedIds.contains(entity.serviceId));
+                v.setSelected(selectedIds.contains(entity));
             }
         });
     }

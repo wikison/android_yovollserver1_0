@@ -27,7 +27,6 @@ import butterknife.ButterKnife;
 public class ServiceListAdapter extends BaseListAdapter<M_Service> {
     ItemServiceClickListener itemServiceClickListener;
 
-
     public interface ItemServiceClickListener {
         void onItemClick(View v, M_Service entity);
     }
