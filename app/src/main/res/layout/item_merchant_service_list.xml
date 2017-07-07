@@ -28,10 +28,11 @@
         android:id="@+id/fgv_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:numColumns="3"
         android:scrollbars="none"
-        android:horizontalSpacing="8dp"
-        android:stretchMode="columnWidth"/>
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="12dp"/>
 
 
 </LinearLayout>

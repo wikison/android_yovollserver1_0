@@ -10,6 +10,7 @@
         android:layout_width="100dp"
         android:gravity="center"
         android:textSize="12sp"
+        android:textColor="@color/font_black_666"
         android:layout_height="30dp"
         app:rv_cornerRadius="15dp"
         android:text=""
