@@ -64,8 +64,8 @@ public class SetUserInfoActivity extends BaseActivity {
     LinearLayout llBack;
     @Bind(R.id.lh_tv_title)
     TextView lhTvTitle;
-    @Bind(R.id.lh_btn_right)
-    Button lhBtnRight;
+    @Bind(R.id.tv_right)
+    TextView tvRight;
     @Bind(R.id.et_name)
     EditText etName;
     @Bind(R.id.et_pwd)
@@ -87,7 +87,8 @@ public class SetUserInfoActivity extends BaseActivity {
     @Override
     public void init() {
         lhTvTitle.setText("个人设置");
-        lhBtnRight.setText("保存");
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText("保存");
         registerReceiver(new String[]{Constants.BROCAST_OSS_UPLOADIMAGE});
 
         if(UserManager.instance().getUserinfo()!=null){
@@ -97,7 +98,7 @@ public class SetUserInfoActivity extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.lh_btn_right, R.id.iv_head})
+    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.tv_right, R.id.iv_head})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.lh_btn_back:
@@ -135,7 +136,7 @@ public class SetUserInfoActivity extends BaseActivity {
                 });
                 break;
 
-            case R.id.lh_btn_right:
+            case R.id.tv_right:
                 if(StringUtils.isBlank(etName.getText().toString().trim())){
                     ToastUtil.showMessage("请输入姓名");
                     return;
@@ -155,6 +156,7 @@ public class SetUserInfoActivity extends BaseActivity {
                 m_userinfo.setUserName(etName.getText().toString().trim());
                 m_userinfo.setPassword(etPwd.getText().toString().trim());
                 UserManager.instance().saveUserinfo(m_userinfo);
+                finish();
                 break;
         }
     }
@@ -171,7 +173,7 @@ public class SetUserInfoActivity extends BaseActivity {
         if (Constants.BROCAST_OSS_UPLOADIMAGE.equals(intent.getAction())) {
             if (intent.getStringExtra("status").equals("ok")) {
                 headString = Constants.OSSENDPOINT + intent.getStringExtra("object");
-                //修改本地IM的头像
+                imageManager.loadCircleHead(headString,ivHead);
             } else {
                 ToastUtil.showMessage(intent.getStringExtra("info"));
             }
@@ -249,13 +251,6 @@ public class SetUserInfoActivity extends BaseActivity {
             return null;
         }
         return bitmap;
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        setResult(RESULT_OK);
-        super.onBackPressed();
     }
 
 
@@ -357,15 +352,5 @@ public class SetUserInfoActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.lh_btn_right})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.lh_btn_back:
-                break;
-            case R.id.ll_back:
-                break;
-            case R.id.lh_btn_right:
-                break;
-        }
-    }
+
 }

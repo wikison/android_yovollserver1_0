@@ -136,7 +136,7 @@ public class HomeFragment extends BaseFragment {
             commonGetadvertListRequest.cancel();
         }
         CommonGetadvertListRequest.Input input = new CommonGetadvertListRequest.Input();
-        input.page = 1;//页面编号(-1:表示全部;0:app开启页1:首页广告位2:我的斜杠3:我是商家)
+        input.page = 3;//页面编号(-1:表示全部;0:app开启页1:首页广告位2:我的斜杠3:我是商家)
 
         input.convertJosn();
         commonGetadvertListRequest = new CommonGetadvertListRequest(input, new ResponseListener() {

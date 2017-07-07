@@ -34,6 +34,7 @@
         android:theme="@style/AppTheme">
 
 
+
         <activity android:name=".activity.MainActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN"/>-->
@@ -43,14 +44,16 @@
         </activity>
 
         <activity android:name=".activity.LoginActivity">
+
+        </activity>
+
+        <activity android:name=".activity.BeServerGuideFirstActivity"/>
+        <activity android:name=".activity.BeServerGuideSecondActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-
-        <activity android:name=".activity.BeServerGuideFirstActivity"/>
-        <activity android:name=".activity.BeServerGuideSecondActivity"/>
+            </activity>
         <activity android:name=".activity.BindMerchantActivity"/>
         <activity android:name=".activity.OrderQrCodeActivity"/>
         <activity android:name=".activity.MyCustomerActivity"/>
@@ -72,6 +75,9 @@
         <activity android:name=".util.imagepicker.SelectPictureActivity"/>
 
 
+        <meta-data
+            android:name="com.zemult.yovollserver.view.MGlideMoudle"
+            android:value="GlideModule" />
 
     </application>
 

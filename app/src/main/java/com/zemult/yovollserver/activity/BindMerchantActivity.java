@@ -91,19 +91,13 @@ public class BindMerchantActivity extends BaseActivity {
             @Override
             public void onSearch(String text) {
                 merchantFragment.search(text);
-
             }
 
             @Override
             public void onClear() {
-
             }
         });
     }
-
-
-
-
 
     //接收广播回调
     @Override

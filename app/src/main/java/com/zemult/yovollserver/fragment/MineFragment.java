@@ -110,7 +110,7 @@ public class MineFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        registerReceiver(new String[]{Constants.BROCAST_UPDATEMYINFO, Constants.BROCAST_BE_SERVER_MANAGER_SUCCESS});
+        registerReceiver(new String[]{Constants.BROCAST_UPDATEMYINFO});
     }
 
     @Override
@@ -152,9 +152,6 @@ public class MineFragment extends BaseFragment {
             //get_user_info_owner_request();
         }
 
-        if (Constants.BROCAST_BE_SERVER_MANAGER_SUCCESS.equals(intent.getAction())) {
-            //get_user_info_owner_request();
-        }
     }
 
 

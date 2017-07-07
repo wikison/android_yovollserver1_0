@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 
 import com.android.volley.VolleyError;
 import com.zemult.yovollserver.R;
-import com.zemult.yovollserver.activity.AllServiceActivity;
 import com.zemult.yovollserver.adapter.HomeChildNewSimpleAdapter;
 import com.zemult.yovollserver.aip.Merchant2SearchListBandRequest;
 import com.zemult.yovollserver.aip.SaleuserMerchantHotListRequest;
@@ -131,9 +130,7 @@ public class SearchMerchantSimpleFragment extends BaseFragment implements Smooth
             @Override
             public void onResponse(Object response) {
                 if (((CommonResult) response).status == 1) {
-                    Intent it = new Intent(mContext, AllServiceActivity.class);
-                    it.putExtra("merchantId", merchant.merchantId);
-                    startActivity(it);
+
                 } else {
                     ToastUtil.showMessage(((CommonResult) response).info);
                 }

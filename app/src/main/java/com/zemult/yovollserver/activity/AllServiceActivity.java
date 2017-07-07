@@ -2,6 +2,7 @@ package com.zemult.yovollserver.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -14,6 +15,7 @@ import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.adapter.ServiceListAdapter;
 import com.zemult.yovollserver.aip.common.CommonMerchantServiceListRequest;
 import com.zemult.yovollserver.app.BaseActivity;
+import com.zemult.yovollserver.config.Constants;
 import com.zemult.yovollserver.model.M_Merchant;
 import com.zemult.yovollserver.model.M_Service;
 import com.zemult.yovollserver.model.apimodel.APIM_ServiceList;
@@ -162,8 +164,19 @@ public class AllServiceActivity extends BaseActivity {
                 break;
             case R.id.tv_right:
                 //TODO Callback
-                this.finish();
-                break;
+            StringBuffer sb=new StringBuffer();
+            for(int i=0;i<selectedIds.size();i++){
+                sb.append( selectedIds.get(i).serviceId);
+                if(i!=selectedIds.size()-1){
+                    sb.append(",");
+                }
+            }
+            Intent intent =new Intent(Constants.BROCAST_BE_SERVER_MANAGER_SUCCESS);
+            intent.putExtra("servicesIds",sb.toString());
+            intent.putExtra("merchantId",merchant.merchantId);
+            sendBroadcast(intent);
+            finish();
+            break;
         }
     }
 }

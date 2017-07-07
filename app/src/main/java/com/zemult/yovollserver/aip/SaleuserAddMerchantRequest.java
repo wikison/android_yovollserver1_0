@@ -33,7 +33,7 @@ public class SaleuserAddMerchantRequest extends PostStringRequest<Type> {
         public String ejson;
 
 
-        public void convertJosn(){
+        public void convertJson(){
             ejson= Convert.securityJson(Convert.pairsToJson(
                     new Pair<String, String>("phone", phone),
                     new Pair<String, String>("merchantId",merchantId+""),
