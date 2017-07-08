@@ -14,10 +14,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,6 +34,7 @@ import com.zemult.yovollserver.util.AppUtils;
 import com.zemult.yovollserver.util.IWxCallback;
 import com.zemult.yovollserver.util.ImageHelper;
 import com.zemult.yovollserver.util.RequestPermissionUtil;
+import com.zemult.yovollserver.util.StringMatchUtils;
 import com.zemult.yovollserver.util.StringUtils;
 import com.zemult.yovollserver.util.ToastUtil;
 import com.zemult.yovollserver.util.UserManager;
@@ -72,7 +76,8 @@ public class SetUserInfoActivity extends BaseActivity {
     EditText etPwd;
     @Bind(R.id.iv_head)
     ImageView ivHead;
-
+    @Bind(R.id.cb_look_pwd)
+    CheckBox cbLookPwd;
 
 
     private String headString = "", tackPhotoName = "", imageUrl;
@@ -97,6 +102,18 @@ public class SetUserInfoActivity extends BaseActivity {
             etName.setText(UserManager.instance().getUserinfo().getUserName());
             etPwd.setText(UserManager.instance().getUserinfo().getPassword());
         }
+
+        cbLookPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    etPwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                }else {
+                    etPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+            }
+        });
+
     }
 
     @OnClick({R.id.lh_btn_back, R.id.ll_back, R.id.tv_right, R.id.iv_head})
@@ -144,6 +161,10 @@ public class SetUserInfoActivity extends BaseActivity {
                 }
                 if(StringUtils.isBlank(etPwd.getText().toString().trim())){
                     ToastUtil.showMessage("请输入密码");
+                    return;
+                }
+                if (StringMatchUtils.isAllNum(etPwd.getText().toString().trim())) {
+                    ToastUtil.showMessage("密码格式错误");
                     return;
                 }
                 Intent intent1 = new Intent();

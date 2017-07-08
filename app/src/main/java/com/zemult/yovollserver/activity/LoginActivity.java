@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.aip.common.UserLoginRequest;
 import com.zemult.yovollserver.app.BaseActivity;
+import com.zemult.yovollserver.model.M_Userinfo;
 import com.zemult.yovollserver.model.apimodel.APIM_UserLogin;
 import com.zemult.yovollserver.util.DigestUtils;
 import com.zemult.yovollserver.util.SlashHelper;
@@ -153,7 +154,12 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onResponse(final Object response) {
                 if (((APIM_UserLogin) response).status == 1) {
-                    UserManager.instance().saveUserinfo(((APIM_UserLogin) response).userInfo);
+                    M_Userinfo m_userinfo=new M_Userinfo();
+                    m_userinfo.setUserName(strUserName);
+                    m_userinfo.setPassword(strPwd);
+                    m_userinfo.setUserId(((APIM_UserLogin) response).userId);
+                    UserManager.instance().saveUserinfo(m_userinfo);
+//                    UserManager.instance().saveUserinfo(((APIM_UserLogin) response).userInfo);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

@@ -12,7 +12,8 @@ public class Urls {
 //    public static String APP_KEY = "23630707";
 
     //测试
-    public static String URL = "http://test1.54xiegang.com/dzyx_test/";
+//    public static String URL = "http://test1.54xiegang.com/dzyx_test/";
+    public static String URL = "http://192.168.0.203:8080/dzyx/";
     public static String APP_KEY = "23521799";
 
 

@@ -150,10 +150,11 @@ public class SplashActivity extends BaseActivity {
                             }
                         });
                     } else {
-                        if (null == SlashHelper.userManager().getUserinfo()) {
+                        if (0 == SlashHelper.userManager().getUserId()) {
 //                                        get_user_login_request();
                             Intent i = new Intent(SplashActivity.this, LoginActivity.class);
                             startActivity(i);
+                            SplashActivity.this.finish();
                         }
                         else{
                             Intent i = new Intent();

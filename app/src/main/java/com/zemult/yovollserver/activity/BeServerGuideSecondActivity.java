@@ -97,6 +97,7 @@ public class BeServerGuideSecondActivity extends BaseActivity {
 
     private void initData() {
         strPhone=getIntent().getStringExtra("strPhone");
+        strPhone="15651215150";
     }
 
     private void initView() {
@@ -147,10 +148,6 @@ public class BeServerGuideSecondActivity extends BaseActivity {
                     return;
                 }
 
-                if (StringMatchUtils.isAllNum(password)) {
-                    ToastUtil.showMessage("密码格式错误");
-                    return;
-                }
 //                ToastUtil.showMessage(strPhone+","+merchantId+","+postionName+","+services+","+username+","+headString+","+password );
 
                 saleuserAddMerchantRequest();
@@ -188,15 +185,21 @@ public class BeServerGuideSecondActivity extends BaseActivity {
             public void onResponse(Object response) {
                 if (((CommonResult) response).status == 1) {
 
-                    M_Userinfo m_userinfo=new M_Userinfo();
-                    m_userinfo.setUserHead(headString);
-                    m_userinfo.setUserName(username);
-                    m_userinfo.setPassword(password);
-                    m_userinfo.setUserId(((CommonResult) response).userId);
-                    UserManager.instance().saveUserinfo(m_userinfo);
-                    Intent  mainintent =new Intent(BeServerGuideSecondActivity.this,MainActivity.class);
-                    startActivity(mainintent);
-                    finish();
+                    if(((CommonResult) response).userId==0){
+                        ToastUtil.showMessage("注册失败");
+                    }
+                    else{
+                        M_Userinfo m_userinfo=new M_Userinfo();
+                        m_userinfo.setUserHead(headString);
+                        m_userinfo.setUserName(username);
+                        m_userinfo.setPassword(password);
+                        m_userinfo.setUserId(((CommonResult) response).userId);
+                        UserManager.instance().saveUserinfo(m_userinfo);
+                        Intent  mainintent =new Intent(BeServerGuideSecondActivity.this,MainActivity.class);
+                        startActivity(mainintent);
+                        finish();
+                    }
+
                 } else {
                     ToastUtil.showMessage(((CommonResult) response).info);
                 }

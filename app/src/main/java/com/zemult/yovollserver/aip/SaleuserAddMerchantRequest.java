@@ -34,17 +34,18 @@ public class SaleuserAddMerchantRequest extends PostStringRequest<Type> {
 
 
         public void convertJson(){
-            ejson= Convert.securityJson(Convert.pairsToJson(
-                    new Pair<String, String>("phone", phone),
-                    new Pair<String, String>("merchantId",merchantId+""),
-                    new Pair<String, String>("position",position),
-                    new Pair<String, String>("isOnBook",isOnBook+""),
-                    new Pair<String, String>("bookPhones",bookPhones),
-                    new Pair<String, String>("services",services),
-                    new Pair<String, String>("name",name),
-                    new Pair<String, String>("head",head),
-                    new Pair<String, String>("password",password)
-            ));
+                ejson= Convert.securityJson(Convert.pairsToJson(
+                        new Pair<String, String>("phone", phone),
+                        new Pair<String, String>("merchantId",merchantId+""),
+                        new Pair<String, String>("position",position),
+                        new Pair<String, String>("isOnBook",isOnBook+""),
+                        new Pair<String, String>("bookPhones",bookPhones),
+                        new Pair<String, String>("services",services),
+                        new Pair<String, String>("name",name),
+                        new Pair<String, String>("head",head),
+                        new Pair<String, String>("password",password)
+                ));
+
         }
 
     }
