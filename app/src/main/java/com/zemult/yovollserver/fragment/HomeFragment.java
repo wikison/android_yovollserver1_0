@@ -19,6 +19,8 @@ import com.flyco.roundview.RoundLinearLayout;
 import com.flyco.roundview.RoundTextView;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.activity.MyCustomerActivity;
+import com.zemult.yovollserver.activity.mine.ServiceHistoryActivity;
+import com.zemult.yovollserver.activity.mine.ServiceTicketListActivity;
 import com.zemult.yovollserver.aip.CommonGetadvertListRequest;
 import com.zemult.yovollserver.app.BaseFragment;
 import com.zemult.yovollserver.config.Constants;
@@ -184,8 +186,10 @@ public class HomeFragment extends BaseFragment {
             case R.id.rll_income:
                 break;
             case R.id.rll_order:
+                IntentUtil.intStart_activity(mActivity, ServiceTicketListActivity.class);
                 break;
             case R.id.rll_buy:
+                IntentUtil.intStart_activity(mActivity, ServiceHistoryActivity.class);
                 break;
             case R.id.rll_product:
                 break;
