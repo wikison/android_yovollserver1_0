@@ -7,10 +7,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.umeng.message.PushAgent;
+import com.umeng.message.common.UmLog;
+import com.umeng.message.inapp.IUmengInAppMsgCloseCallback;
+import com.umeng.message.inapp.InAppMessageManager;
 import com.zemult.yovollserver.R;
 import com.zemult.yovollserver.adapter.HomePagerAdapter;
 import com.zemult.yovollserver.app.BaseActivity;
 import com.zemult.yovollserver.util.IntentUtil;
+import com.zemult.yovollserver.util.SlashHelper;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -27,7 +32,6 @@ public class MainActivity extends BaseActivity {
     ViewPager vp;
 
     HomePagerAdapter adapter;
-
     @Override
     public void setContentView() {
         setContentView(R.layout.activity_main);

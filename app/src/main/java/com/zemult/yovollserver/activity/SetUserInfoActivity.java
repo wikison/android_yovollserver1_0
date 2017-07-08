@@ -93,6 +93,7 @@ public class SetUserInfoActivity extends BaseActivity {
 
         if(UserManager.instance().getUserinfo()!=null){
             imageManager.loadCircleHead(UserManager.instance().getUserinfo().getUserHead(),ivHead);
+            headString=UserManager.instance().getUserinfo().getUserHead();
             etName.setText(UserManager.instance().getUserinfo().getUserName());
             etPwd.setText(UserManager.instance().getUserinfo().getPassword());
         }

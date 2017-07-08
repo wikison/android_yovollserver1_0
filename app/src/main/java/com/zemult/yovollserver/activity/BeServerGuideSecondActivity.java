@@ -20,10 +20,14 @@ import com.zemult.yovollserver.aip.common.CommonMerchantServiceListRequest;
 import com.zemult.yovollserver.app.BaseActivity;
 import com.zemult.yovollserver.config.Constants;
 import com.zemult.yovollserver.model.CommonResult;
+import com.zemult.yovollserver.model.M_Userinfo;
 import com.zemult.yovollserver.model.apimodel.APIM_ServiceList;
+import com.zemult.yovollserver.util.DigestUtils;
 import com.zemult.yovollserver.util.SlashHelper;
+import com.zemult.yovollserver.util.StringMatchUtils;
 import com.zemult.yovollserver.util.StringUtils;
 import com.zemult.yovollserver.util.ToastUtil;
+import com.zemult.yovollserver.util.UserManager;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -93,7 +97,6 @@ public class BeServerGuideSecondActivity extends BaseActivity {
 
     private void initData() {
         strPhone=getIntent().getStringExtra("strPhone");
-        strPhone="15861153231";
     }
 
     private void initView() {
@@ -143,9 +146,14 @@ public class BeServerGuideSecondActivity extends BaseActivity {
                     ToastUtil.showMessage("请阅读并接受协议");
                     return;
                 }
-                ToastUtil.showMessage(strPhone+","+merchantId+","+postionName+","+services+","+username+","+headString+","+password );
 
-//                saleuserAddMerchantRequest();
+                if (StringMatchUtils.isAllNum(password)) {
+                    ToastUtil.showMessage("密码格式错误");
+                    return;
+                }
+//                ToastUtil.showMessage(strPhone+","+merchantId+","+postionName+","+services+","+username+","+headString+","+password );
+
+                saleuserAddMerchantRequest();
 
                 break;
         }
@@ -166,7 +174,7 @@ public class BeServerGuideSecondActivity extends BaseActivity {
         input.services =services;
         input.name =username;
         input.head =headString;
-        input.password=password;
+        input.password= DigestUtils.md5(password).toUpperCase();
 
 
         input.convertJson();
@@ -179,8 +187,16 @@ public class BeServerGuideSecondActivity extends BaseActivity {
             @Override
             public void onResponse(Object response) {
                 if (((CommonResult) response).status == 1) {
+
+                    M_Userinfo m_userinfo=new M_Userinfo();
+                    m_userinfo.setUserHead(headString);
+                    m_userinfo.setUserName(username);
+                    m_userinfo.setPassword(password);
+                    m_userinfo.setUserId(((CommonResult) response).userId);
+                    UserManager.instance().saveUserinfo(m_userinfo);
                     Intent  mainintent =new Intent(BeServerGuideSecondActivity.this,MainActivity.class);
                     startActivity(mainintent);
+                    finish();
                 } else {
                     ToastUtil.showMessage(((CommonResult) response).info);
                 }
@@ -208,7 +224,6 @@ public class BeServerGuideSecondActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode==INFOCODE&&resultCode==RESULT_OK){
-            ToastUtil.showMessage(data.getStringExtra("headString"));
             headString=data.getStringExtra("headString");
             username=data.getStringExtra("username");
             password=data.getStringExtra("password");

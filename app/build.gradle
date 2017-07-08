@@ -12,8 +12,9 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "0.1.0"
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "default_channel", RELEASE_VERSION_VALUE: "v1.0", DEBUG_VERSION_VALUE: "测试版本号:Android_${releaseTime()}"]
     }
 
     signingConfigs {
@@ -107,5 +108,6 @@ dependencies {
     compile 'me.grantland:autofittextview:0.2.1'
     compile 'com.youth.banner:banner:1.4.9'
     compile 'com.jungly:gridPasswordView:0.3'
-
+    compile project(':Pushlib')
+    compile files('libs/umeng-analytics-v5.5.3.jar')
 }

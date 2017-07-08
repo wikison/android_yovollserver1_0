@@ -139,7 +139,7 @@ public class LoginActivity extends BaseActivity {
             user_login_request.cancel();
         }
         UserLoginRequest.Input input = new UserLoginRequest.Input();
-        input.account = strUserName;
+        input.phone = strUserName;
         input.password = DigestUtils.md5(strPwd).toUpperCase();
         input.device_token = SlashHelper.deviceManager().getUmengDeviceToken();
         input.convertJosn();

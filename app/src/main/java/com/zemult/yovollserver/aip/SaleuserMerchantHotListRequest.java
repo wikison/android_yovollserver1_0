@@ -27,14 +27,26 @@ public class SaleuserMerchantHotListRequest extends PostStringRequest<Type> {
 
 
         public void convertJosn() {
-            ejson = Convert.securityJson(Convert.pairsToJson(
-                    new Pair<String, String>("operateUserId", operateUserId + ""),
-                    new Pair<String, String>("center", center),
-                    new Pair<String, String>("city", city),
-                    new Pair<String, String>("name", name),
-                    new Pair<String, String>("page", page+""),
-                    new Pair<String, String>("rows", rows+"")
-            ));
+            if(operateUserId==0){
+                ejson = Convert.securityJson(Convert.pairsToJson(
+                        new Pair<String, String>("center", center),
+                        new Pair<String, String>("city", city),
+                        new Pair<String, String>("name", name),
+                        new Pair<String, String>("page", page+""),
+                        new Pair<String, String>("rows", rows+"")
+                ));
+            }
+            else{
+                ejson = Convert.securityJson(Convert.pairsToJson(
+                        new Pair<String, String>("operateUserId", operateUserId + ""),
+                        new Pair<String, String>("center", center),
+                        new Pair<String, String>("city", city),
+                        new Pair<String, String>("name", name),
+                        new Pair<String, String>("page", page+""),
+                        new Pair<String, String>("rows", rows+"")
+                ));
+            }
+
         }
     }
 

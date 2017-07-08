@@ -21,14 +21,14 @@ public class UserLoginRequest extends PostStringRequest<Type> {
     }
 
     public static class Input {
-        public String account;       //  账号(手机号或者账号)
+        public String phone;       //  账号(手机号或者账号)
         public String password;       //密码(经过MD5加密过后的)
         public String device_token;       //IM推送的设备唯一标识
         public String ejson;
 
         public void convertJosn() {
             ejson = Convert.securityJson(Convert.pairsToJson(
-                    new Pair<String, String>("account", account),
+                    new Pair<String, String>("phone", phone),
                     new Pair<String, String>("password", password),
                     new Pair<String, String>("device_token", device_token)));
         }

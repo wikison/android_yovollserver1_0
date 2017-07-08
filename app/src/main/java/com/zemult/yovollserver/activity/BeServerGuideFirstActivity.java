@@ -139,6 +139,7 @@ public class BeServerGuideFirstActivity extends BaseActivity {
                         Intent intent = new Intent(BeServerGuideFirstActivity.this, BeServerGuideSecondActivity.class);
                         intent.putExtra("strPhone", strPhone);
                         startActivity(intent);
+                        finish();
                     } else {
                         ToastUtil.showMessage(((CommonResult) response).info);
 
