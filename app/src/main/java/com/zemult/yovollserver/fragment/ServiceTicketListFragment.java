@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 
 import com.android.volley.VolleyError;
 import com.zemult.yovollserver.R;
+import com.zemult.yovollserver.activity.mine.AppointmentDetailNewActivity;
 import com.zemult.yovollserver.adapter.CommonAdapter;
 import com.zemult.yovollserver.adapter.CommonViewHolder;
 import com.zemult.yovollserver.aip.UserSaleReservationList;
@@ -141,9 +142,9 @@ public class ServiceTicketListFragment extends BaseFragment implements SmoothLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 reservationId = mDatas.get(position - 1).reservationId;
-//                Intent intent = new Intent(getActivity(), AppointmentDetailNewActivity.class);
-//                intent.putExtra(AppointmentDetailNewActivity.INTENT_RESERVATIONID, reservationId + "");
-//                startActivityForResult(intent, Activity.RESULT_FIRST_USER);
+                Intent intent = new Intent(getActivity(), AppointmentDetailNewActivity.class);
+                intent.putExtra(AppointmentDetailNewActivity.INTENT_RESERVATION_ID, reservationId + "");
+                startActivityForResult(intent, Activity.RESULT_FIRST_USER);
             }
         });
 
