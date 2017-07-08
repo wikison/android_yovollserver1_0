@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#f2f2f2"
+
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/layout_head"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:background="@drawable/ripple_item_clicked2">
+
+        <TextView
+            style="@style/text_15_black_28"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:text="头像"/>
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/imageView"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/user_icon"/>
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="19dp"
+            android:src="@mipmap/right_btn"/>
+    </RelativeLayout>
+
+
+    <View style="@style/view1dp"></View>
+
+    <RelativeLayout
+        android:id="@+id/rl_name"
+        style="@style/layout_item_click"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/text_15_black_28"
+            android:layout_marginLeft="16dp"
+            android:text="昵称"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/text_15_black_999"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:drawablePadding="12dp"
+            android:drawableRight="@mipmap/right_btn"
+            android:text="曾小爷"/>
+
+    </RelativeLayout>
+
+    <View style="@style/view1dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_12dp"
+        android:background="@drawable/ripple_item_clicked2"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="@dimen/margin_16dp"
+        android:visibility="visible">
+
+        <TextView
+            style="@style/text_15_black_28"
+            android:text="我的相册"/>
+
+        <com.zemult.yovollserver.view.FixedGridView
+            android:id="@+id/gv_pic"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:numColumns="3"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:src="@mipmap/right_btn"/>
+    </LinearLayout>
+
+
+    <View
+        style="@style/view1dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_qr"
+        style="@style/layout_item_click"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:text="我的二维码"
+            android:textColor="@color/font_black_333"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/right_btn"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btn_exit"
+        style="@style/common_btn_235"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="60dp"
+        android:onClick="click"
+        android:text="退出账号"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+
+</LinearLayout>

@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zemult.yovollserver.R;
+import com.zemult.yovollserver.activity.mine.MyInfoSetActivity;
 import com.zemult.yovollserver.activity.mine.MySettingActivity;
 import com.zemult.yovollserver.app.BaseFragment;
 import com.zemult.yovollserver.config.Constants;
@@ -29,6 +30,8 @@ import butterknife.OnClick;
  */
 public class MineFragment extends BaseFragment {
 
+    @Bind(R.id.ll_head_info)
+    LinearLayout llHeadInfo;
     @Bind(R.id.iv_head)
     ImageView ivHead;
     @Bind(R.id.tv_name)
@@ -127,10 +130,13 @@ public class MineFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.rl_my_order, R.id.rl_my_own, R.id.rl_my_scheme, R.id.rl_my_merchant, R.id.rl_my_service, R.id.rl_my_msg, R.id.rl_set})
+    @OnClick({R.id.ll_head_info, R.id.rl_my_order, R.id.rl_my_own, R.id.rl_my_scheme, R.id.rl_my_merchant, R.id.rl_my_service, R.id.rl_my_msg, R.id.rl_set})
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
+            case R.id.ll_head_info:
+                IntentUtil.start_activity(mActivity, MyInfoSetActivity.class);
+                break ;
             case R.id.rl_my_order:
                 break;
             case R.id.rl_my_own:

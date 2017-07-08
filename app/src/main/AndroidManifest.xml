@@ -85,6 +85,10 @@
         <activity android:name=".activity.mine.MySettingActivity"/>
         <activity android:name=".activity.mine.ServiceTicketListActivity"/>
         <activity android:name=".activity.mine.AppointmentDetailNewActivity"/>
+        <activity android:name=".activity.mine.MyInfoSetActivity"/>
+        <activity android:name=".activity.mine.NicknameActivity"/>
+        <activity android:name=".activity.mine.HeadManageActivity"/>
+        <activity android:name=".activity.mine.AlbumActivity"/>
 
 
         <!-- 下载服务 -->
