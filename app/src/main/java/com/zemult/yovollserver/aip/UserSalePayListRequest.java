@@ -13,7 +13,7 @@ import zema.volley.network.PostStringRequest;
 import zema.volley.network.ResponseListener;
 
 /**
- * 约客服务记录列表
+ * 服务管家的交易单记录列表
  * Created by wikison on 2016/12/30.
  */
 public class UserSalePayListRequest extends PostStringRequest<Type> {

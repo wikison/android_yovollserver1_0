@@ -2,6 +2,7 @@ package com.zemult.yovollserver.activity.mine;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -93,9 +94,9 @@ public class ServiceHistoryActivity extends BaseActivity implements SmoothListVi
                 selectPosition = position - 1;
                 M_Bill m_bill = userSalePayAdapter.getItem(position - 1);
                 selectPayId = m_bill.userPayId;
-//                Intent intent = new Intent(mContext, ServiceHistoryDetailActivity.class);
-//                intent.putExtra("userPayId", m_bill.userPayId);
-//                startActivity(intent);
+                Intent intent = new Intent(mContext, ServiceHistoryDetailActivity.class);
+                intent.putExtra("userPayId", m_bill.userPayId);
+                startActivity(intent);
             }
         });
 
